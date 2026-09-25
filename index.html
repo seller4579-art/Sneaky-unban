@@ -5,389 +5,1042 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FREE FIRE ID UNBAN — Premium Access</title>
   <meta name="description" content="FREE FIRE ID UNBAN premium access portal" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #050c07;
-      --panel: rgba(12, 31, 18, .86);
-      --panel-2: #0d2214;
-      --line: rgba(149, 230, 179, .15);
-      --text: #f2fff7;
-      --muted: #8eb09a;
-      --hot: #22c55e;
-      --hot-2: #4ade80;
-      --green: #80e86e;
-      --shadow: 0 28px 90px rgba(0,0,0,.48);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --bg-0: #08040f;
+      --bg-1: #0f0820;
+      --line: rgba(180, 130, 255, .14);
+      --text: #f5efff;
+      --muted: #9a8cb8;
+      --dim: #6a5a8a;
+      --violet: #a855f7;
+      --violet-2: #7c3aed;
+      --violet-3: #c084fc;
+      --gold: #fbbf24;
+      --gold-2: #f59e0b;
+      --cyan: #22d3ee;
+      --rose: #f43f5e;
+      --green: #4ade80;
+      --shadow: 0 30px 80px rgba(0,0,0,.7);
+      font-family: 'Space Grotesk', Inter, ui-sans-serif, system-ui, sans-serif;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      min-width: 320px;
-      color: var(--text);
+      margin: 0; min-width: 320px; color: var(--text);
+      background: var(--bg-0);
+      min-height: 100vh; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .bg-wrap {
+      position: fixed; inset: 0; z-index: -1; overflow: hidden;
       background:
-        radial-gradient(circle at 12% 8%, rgba(34, 197, 94, .22), transparent 28rem),
-        radial-gradient(circle at 92% 15%, rgba(16, 185, 129, .12), transparent 25rem),
-        linear-gradient(140deg, #030a05 0%, #081d10 48%, #030a05 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
+        radial-gradient(ellipse 90% 60% at 50% -10%, rgba(168,85,247,.20), transparent 65%),
+        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(251,191,36,.08), transparent 60%),
+        linear-gradient(180deg, #08040f 0%, #100822 45%, #08040f 100%);
+    }
+    .bg-wrap::before {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(168,85,247,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168,85,247,.045) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 55% at 50% 40%, black 25%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 40%, black 25%, transparent 70%);
+    }
+    .orb { position: absolute; border-radius: 50%; filter: blur(100px); opacity: .45; }
+    .orb.o1 { width: 480px; height: 480px; top: -150px; left: -160px; background: #7c3aed; }
+    .orb.o2 { width: 400px; height: 400px; top: 35%; right: -140px; background: #a855f7; opacity: .35; }
+    .orb.o3 { width: 320px; height: 320px; bottom: -100px; left: 35%; background: #fbbf24; opacity: .14; }
+    @media (prefers-reduced-motion: no-preference) {
+      .orb.o1 { animation: orbFloat 20s ease-in-out infinite; }
+      .orb.o2 { animation: orbFloat 24s ease-in-out infinite reverse; }
+      .orb.o3 { animation: orbFloat 28s ease-in-out infinite; }
+    }
+    @keyframes orbFloat {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(50px,-40px) scale(1.1); }
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .22;
-      background-image: linear-gradient(rgba(130,230,170,.035) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(130,230,170,.035) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: linear-gradient(to bottom, black, transparent 75%);
-    }
+    button, input, select { font: inherit; color: inherit; }
+    button { cursor: pointer; border: 0; background: none; -webkit-tap-highlight-color: transparent; }
+    .shell { width: min(1140px, calc(100% - 40px)); margin: 0 auto; }
 
-    button, input, select { font: inherit; }
-    button { cursor: pointer; }
-    .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .ticker {
+      height: 32px; overflow: hidden; position: relative;
+      background: linear-gradient(90deg, rgba(124,58,237,.35), rgba(168,85,247,.2), rgba(251,191,36,.15));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      font-size: 11px; font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: .03em;
+    }
+    .ticker-inner {
+      display: flex; align-items: center; gap: 40px;
+      height: 100%; padding-left: 100%;
+      animation: tickerScroll 55s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-inner span { display: inline-flex; align-items: center; gap: 8px; }
+    .ticker-inner .dot {
+      width: 6px; height: 6px; border-radius: 50%; background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+    }
+    .ticker-inner b { color: var(--gold); }
+    @keyframes tickerScroll { to { transform: translateX(-100%); } }
 
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      height: 76px;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,.075);
-      background: rgba(5, 12, 7, .7);
-      backdrop-filter: blur(18px);
+      position: sticky; top: 0; z-index: 40; height: 76px;
+      display: flex; align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      background: rgba(8, 4, 15, .82);
+      backdrop-filter: blur(22px) saturate(140%);
+      -webkit-backdrop-filter: blur(22px) saturate(140%);
     }
-    .topbar::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,197,94,.72), transparent); opacity: .7; }
+    .topbar::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,85,247,.85), rgba(251,191,36,.5), transparent);
+    }
     .topbar-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-    .back-btn { display: none; align-items: center; gap: 8px; padding: 9px 12px; color: #c8d8c8; border: 1px solid var(--line); border-radius: 9px; background: rgba(255,255,255,.04); font-size: 11px; font-weight: 800; }
-    .back-btn:hover { color: #fff; border-color: rgba(74,222,128,.65); background: rgba(34,197,94,.14); }
-    body.screen-details .back-btn, body.screen-payment .back-btn { display: inline-flex; }
-    .brand { display: flex; align-items: center; gap: 11px; letter-spacing: -.02em; }
+    .brand { display: flex; align-items: center; gap: 12px; }
     .brand-mark {
-      width: 36px; height: 36px; display: grid; place-items: center;
-      border-radius: 11px; color: #02160a; font-size: 17px; font-weight: 950;
-      background: linear-gradient(140deg, #bbf7d0, #22c55e 55%, #15803d);
-      box-shadow: 0 8px 24px rgba(34, 197, 94, .38);
-      transform: skew(-7deg);
+      width: 40px; height: 40px; display: grid; place-items: center;
+      border-radius: 12px; color: #180b2e; font-weight: 800; font-size: 18px;
+      background: linear-gradient(140deg, #e9d5ff, #a855f7 45%, #7c3aed);
+      box-shadow: 0 0 26px rgba(168,85,247,.55), inset 0 -2px 0 rgba(0,0,0,.25);
+      font-family: 'JetBrains Mono', monospace;
+      position: relative; overflow: hidden;
     }
-    .brand strong { font-size: 15px; }
-    .brand small { display: block; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .12em; margin-top: 2px; }
+    .brand-mark::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.55) 50%, transparent 60%);
+      transform: translateX(-100%);
+      animation: shine 5s ease-in-out infinite;
+    }
+    @keyframes shine { 0%,70% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+    .brand-text strong {
+      display: block; font-size: 14px; letter-spacing: .06em; font-weight: 700;
+      text-transform: uppercase;
+    }
+    .brand-text small {
+      display: block; color: var(--muted); font-size: 9px; font-weight: 600;
+      letter-spacing: .28em; margin-top: 3px; text-transform: uppercase;
+    }
     .status-pill {
-      display: flex; align-items: center; gap: 8px; padding: 9px 13px;
-      color: #b8eeb0; border: 1px solid rgba(128,232,110,.2);
-      border-radius: 99px; background: rgba(128,232,110,.07); font-size: 12px; font-weight: 750;
+      display: flex; align-items: center; gap: 9px; padding: 8px 14px;
+      color: #d8b4fe; border: 1px solid rgba(168,85,247,.3);
+      border-radius: 99px; background: rgba(168,85,247,.08);
+      font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
     }
-    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); }
+    .status-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #4ade80;
+      box-shadow: 0 0 10px #4ade80;
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1);} 50% { opacity:.4; transform: scale(.85);} }
 
-    main { padding: 76px 0 62px; }
-    .hero { display: grid; grid-template-columns: 1fr; place-items: center; min-height: 620px; }
-    body.screen-login .hero { min-height: calc(100vh - 190px); }
-    body.screen-login .hero-copy-wrap { display: none; }
-    body.screen-login .auth-card { width: min(100%, 430px); }
-    .hero-copy-wrap { position: relative; }
-    .hero-copy-wrap::before { content: ""; position: absolute; z-index: -1; top: 50px; left: -90px; width: 320px; height: 260px; border-radius: 50%; background: rgba(34,197,94,.16); filter: blur(70px); animation: pulseGlow 4.5s ease-in-out infinite; }
-    @keyframes pulseGlow { 0%, 100% { opacity: .42; transform: scale(.92); } 50% { opacity: .78; transform: scale(1.1); } }
-    .eyebrow { display: inline-flex; gap: 9px; align-items: center; color: #86efac; text-transform: uppercase; letter-spacing: .2em; font-size: 11px; font-weight: 850; }
-    .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--hot); box-shadow: 0 0 10px var(--hot); }
-    h1 { max-width: 660px; margin: 22px 0 17px; font-size: clamp(47px, 7vw, 88px); line-height: .93; letter-spacing: -.075em; font-weight: 900; }
-    .gradient-text { color: transparent; background: linear-gradient(110deg, #fff 15%, #bbf7d0 51%, #22c55e 88%); background-clip: text; -webkit-background-clip: text; }
-    .hero-copy { max-width: 490px; margin: 0; color: var(--muted); line-height: 1.7; font-size: 15px; }
-    .hero-bullets { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 27px; }
-    .hero-bullets span { padding: 8px 11px; color: #d0e8d8; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.035); font-size: 11px; font-weight: 700; }
+    .back-btn {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px 9px 12px;
+      color: #f0e5ff;
+      border: 1px solid rgba(168,85,247,.35);
+      border-radius: 99px;
+      background: linear-gradient(135deg, rgba(168,85,247,.15), rgba(124,58,237,.08));
+      box-shadow: 0 4px 16px rgba(168,85,247,.12), inset 0 1px 0 rgba(255,255,255,.08);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+      transition: transform .2s, background .2s, border-color .2s, box-shadow .2s;
+    }
+    .back-btn .back-icon {
+      width: 22px; height: 22px;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      background: rgba(168,85,247,.22);
+      border: 1px solid rgba(168,85,247,.4);
+      transition: transform .25s, background .25s;
+    }
+    .back-btn .back-icon svg {
+      width: 12px; height: 12px;
+      stroke: var(--violet-3);
+      transition: stroke .2s;
+    }
+    .back-btn:hover {
+      background: linear-gradient(135deg, rgba(168,85,247,.28), rgba(124,58,237,.15));
+      border-color: var(--violet);
+      box-shadow: 0 6px 24px rgba(168,85,247,.35), inset 0 1px 0 rgba(255,255,255,.1);
+      transform: translateX(-2px);
+    }
+    .back-btn:hover .back-icon { transform: translateX(-3px); background: rgba(168,85,247,.4); }
+    .back-btn:hover .back-icon svg { stroke: #fff; }
+    .back-btn:active { transform: translateX(-1px) scale(.98); }
+    body.screen-details .back-btn, body.screen-payment .back-btn { display: inline-flex; }
 
-    .auth-card {
-      position: relative; overflow: hidden; padding: 28px; border: 1px solid rgba(111, 232, 160, .24);
-      border-radius: 25px; background: linear-gradient(145deg, rgba(16, 49, 28, .94), rgba(5, 17, 9, .96));
-      box-shadow: var(--shadow), inset 0 1px rgba(255,255,255,.08);
+    main { padding: 44px 0 80px; }
+
+    .glass {
+      position: relative; border-radius: 24px;
+      background: linear-gradient(160deg, rgba(34, 18, 64, .78), rgba(12, 6, 24, .92));
+      border: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.06);
+      overflow: hidden;
     }
-    .auth-card::after { content: ""; position: absolute; inset: 1px; pointer-events: none; border-radius: 24px; background: linear-gradient(120deg, rgba(255,255,255,.1), transparent 22%, transparent 75%, rgba(74,222,128,.16)); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; padding: 1px; }
-    .auth-card::before {
-      content: ""; position: absolute; width: 270px; height: 190px; top: -105px; right: -60px;
-      border-radius: 50%; background: rgba(34, 197, 94, .25); filter: blur(2px);
+    .glass::before {
+      content: ""; position: absolute; inset: 0; border-radius: 24px; padding: 1px;
+      background: linear-gradient(140deg, rgba(168,85,247,.5), transparent 30%, transparent 70%, rgba(251,191,36,.35));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events: none;
     }
-    .card-head { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; margin-bottom: 27px; }
-    .card-kicker { color: #4ade80; font-size: 11px; text-transform: uppercase; letter-spacing: .17em; font-weight: 850; }
-    h2 { margin: 8px 0 0; font-size: 25px; letter-spacing: -.04em; }
-    .secure-icon { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(74,222,128,.38); color: #86efac; border-radius: 12px; background: rgba(34,197,94,.14); font-size: 17px; }
-    .form-group { margin: 17px 0; }
-    label { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; color: #b5c8ba; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+
+    .hero { min-height: calc(100vh - 220px); display: grid; place-items: center; }
+
+    .trust-strip {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      margin-bottom: 26px;
+    }
+    .trust-chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 13px; border-radius: 99px;
+      background: rgba(168,85,247,.08);
+      border: 1px solid rgba(168,85,247,.22);
+      color: #d8b4fe; font-size: 10.5px; font-weight: 600;
+      letter-spacing: .06em; font-family: 'JetBrains Mono', monospace;
+    }
+    .trust-chip svg { width: 12px; height: 12px; }
+    .trust-chip.gold {
+      background: rgba(251,191,36,.08);
+      border-color: rgba(251,191,36,.3);
+      color: #fde68a;
+    }
+    .trust-chip.green {
+      background: rgba(74,222,128,.08);
+      border-color: rgba(74,222,128,.28);
+      color: #86efac;
+    }
+
+    .auth-card { width: min(100%, 460px); padding: 34px 32px; }
+    .card-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--violet-3); font-size: 10px; font-weight: 700;
+      letter-spacing: .3em; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;
+    }
+    .card-kicker::before {
+      content: ""; width: 22px; height: 1px; background: var(--violet-3);
+      box-shadow: 0 0 10px var(--violet-3);
+    }
+    .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 24px; }
+    h2 { margin: 10px 0 0; font-size: 26px; letter-spacing: -.02em; font-weight: 700; }
+    .secure-badge {
+      width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center;
+      border: 1px solid rgba(168,85,247,.35); background: rgba(168,85,247,.1);
+      color: var(--violet-3);
+      box-shadow: 0 0 22px rgba(168,85,247,.2);
+    }
+    .secure-badge svg { width: 22px; height: 22px; }
+
+    .rating-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 14px; margin-bottom: 20px;
+      border-radius: 11px;
+      background: rgba(251,191,36,.06);
+      border: 1px solid rgba(251,191,36,.18);
+      font-size: 11.5px;
+    }
+    .stars { color: var(--gold); letter-spacing: 2px; font-size: 13px; }
+    .rating-row b { color: var(--gold); font-weight: 700; }
+    .rating-row span { color: var(--muted); font-size: 11px; }
+
+    .form-group { margin: 18px 0; }
+    label {
+      display: flex; justify-content: space-between; gap: 12px;
+      margin-bottom: 9px; color: var(--muted); font-size: 10px; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    label span { color: var(--violet-3); font-family: 'Space Grotesk', sans-serif; letter-spacing: 0; text-transform: none; font-size: 10px; }
     .field-wrap { position: relative; }
-    input, select {
-      width: 100%; height: 50px; border: 1px solid rgba(255,255,255,.12); border-radius: 11px;
-      outline: none; padding: 0 14px; color: var(--text); background: rgba(255,255,255,.055);
-      transition: border .2s, box-shadow .2s, background .2s;
+    input {
+      width: 100%; height: 54px; padding: 0 16px;
+      border-radius: 12px; border: 1px solid rgba(255,255,255,.09);
+      background: rgba(0,0,0,.4); color: var(--text);
+      outline: none; font-size: 14px;
+      transition: border-color .2s, box-shadow .2s, background .2s;
     }
-    input::placeholder { color: #6a7a6e; }
-    input:focus, select:focus { border-color: rgba(74,222,128,.9); box-shadow: 0 0 0 4px rgba(34,197,94,.16); background: rgba(255,255,255,.08); }
-    select { appearance: none; padding-right: 42px; }
-    .select-wrap::after { content: "⌄"; position: absolute; right: 15px; top: 12px; color: #4ade80; pointer-events: none; font-size: 18px; }
+    input::placeholder { color: var(--dim); }
+    input:focus {
+      border-color: var(--violet);
+      box-shadow: 0 0 0 4px rgba(168,85,247,.15), 0 0 32px rgba(168,85,247,.2);
+      background: rgba(0,0,0,.55);
+    }
     .input-action {
-      position: absolute; right: 6px; top: 6px; height: 38px; padding: 0 11px; color: #86efac;
-      border: 1px solid rgba(74,222,128,.3); border-radius: 8px; background: rgba(34,197,94,.13); font-size: 11px; font-weight: 800;
+      position: absolute; right: 6px; top: 6px; height: 42px; padding: 0 14px;
+      color: var(--violet-3); border: 1px solid rgba(168,85,247,.3);
+      border-radius: 9px; background: rgba(168,85,247,.1);
+      font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all .2s;
     }
-    .help-line { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; color: #6e8274; font-size: 11px; }
-    .copy-state { color: #9ee88d; }
-    .primary-btn, .secondary-btn {
-      width: 100%; height: 52px; border: 0; border-radius: 11px; font-weight: 900; letter-spacing: .01em;
-      transition: transform .2s, filter .2s, box-shadow .2s;
-    }
-    .primary-btn { color: #02160a; background: linear-gradient(110deg, #bbf7d0, #22c55e 47%, #15803d); box-shadow: 0 12px 28px rgba(34, 197, 94, .3); }
-    .primary-btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 16px 33px rgba(34, 197, 94, .42); }
-    .secondary-btn { color: #dedee4; border: 1px solid var(--line); background: rgba(255,255,255,.045); }
-    .secondary-btn:hover { background: rgba(255,255,255,.09); }
-    .fine-print { margin: 15px 0 0; text-align: center; color: #6a7a6e; font-size: 10px; line-height: 1.5; }
-    .fine-print b { color: #9cb0a2; }
+    .input-action:hover { background: rgba(168,85,247,.22); border-color: var(--violet); }
+    .help-line { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; color: var(--dim); font-size: 10px; letter-spacing: .05em; font-family: 'JetBrains Mono', monospace; }
+    .copy-state { color: var(--violet-3); }
 
-    .workspace { display: none; min-height: calc(100vh - 190px); padding-top: 25px; }
-    .workspace.visible { display: block; animation: rise .45s ease both; }
-    @keyframes rise { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
-    .steps { display: flex; align-items: center; gap: 9px; margin-bottom: 25px; color: #667a6c; font-size: 11px; font-weight: 800; }
-    .step { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
-    .step-num { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid #384a3d; border-radius: 50%; }
-    .step.active { color: #4ade80; }
-    .step.active .step-num { color: #02160a; border-color: var(--hot); background: var(--hot); }
-    .step-line { width: 34px; height: 1px; background: #33453a; }
-    .workspace-grid { display: grid; grid-template-columns: 1fr; justify-items: center; gap: 22px; }
-    .workspace-grid > .section-card:first-child { width: min(100%, 630px); }
-    .workspace-grid > aside { display: none; }
-    .section-card { padding: 27px; border: 1px solid var(--line); border-radius: 20px; background: rgba(21,31,24,.78); box-shadow: 0 18px 60px rgba(0,0,0,.2); }
-    .section-card h3 { margin: 0 0 8px; font-size: 20px; letter-spacing: -.03em; }
-    .section-sub { margin: 0 0 22px; color: var(--muted); line-height: 1.55; font-size: 13px; }
-    .reason-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .primary-btn {
+      position: relative; width: 100%; height: 58px;
+      border-radius: 14px; font-weight: 700; font-size: 14px;
+      letter-spacing: .1em; text-transform: uppercase; color: #1a0c02;
+      background: linear-gradient(110deg, #fef3c7 0%, #fbbf24 45%, #f59e0b 100%);
+      box-shadow: 0 12px 32px rgba(251,191,36,.4), inset 0 -2px 0 rgba(0,0,0,.2);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      overflow: hidden; margin-top: 12px;
+      transition: transform .2s, box-shadow .2s, filter .2s;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .primary-btn::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.7) 50%, transparent 65%);
+      transform: translateX(-100%);
+    }
+    .primary-btn:hover { transform: translateY(-3px); box-shadow: 0 20px 46px rgba(251,191,36,.55), inset 0 -2px 0 rgba(0,0,0,.2); filter: brightness(1.05); }
+    .primary-btn:hover::before { animation: btnShine .9s ease; }
+    .primary-btn:active { transform: translateY(-1px); }
+    @keyframes btnShine { to { transform: translateX(100%); } }
+    .primary-btn svg { width: 16px; height: 16px; }
+
+    .workspace { display: none; min-height: calc(100vh - 200px); padding-top: 20px; }
+    .workspace.visible { display: block; animation: rise .5s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+    .steps {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin-bottom: 34px; color: var(--dim); font-size: 10px;
+      letter-spacing: .22em; text-transform: uppercase; font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .step { display: flex; align-items: center; gap: 10px; white-space: nowrap; transition: color .3s; }
+    .step-num {
+      display: grid; place-items: center; width: 28px; height: 28px;
+      border: 1px solid rgba(255,255,255,.15); border-radius: 50%;
+      font-size: 11px; transition: all .3s;
+    }
+    .step.active { color: var(--violet-3); }
+    .step.active .step-num {
+      color: #180b2e; border-color: var(--violet); background: var(--violet);
+      box-shadow: 0 0 22px rgba(168,85,247,.7);
+    }
+    .step-line { width: 40px; height: 1px; background: rgba(255,255,255,.1); }
+
+    .section-card { max-width: 660px; margin: 0 auto; padding: 34px 32px; }
+    .section-card h3 { margin: 0 0 8px; font-size: 22px; letter-spacing: -.01em; font-weight: 700; }
+    .section-sub { margin: 0 0 26px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+    .game-select-wrap { position: relative; }
+    .game-select {
+      width: 100%; height: 60px;
+      padding: 0 52px 0 58px;
+      border-radius: 14px;
+      border: 1.5px solid rgba(255,255,255,.09);
+      background: linear-gradient(160deg, rgba(30,15,55,.6), rgba(12,6,24,.7));
+      color: var(--text);
+      outline: none;
+      font-size: 15px; font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    .game-select:hover {
+      border-color: rgba(168,85,247,.45);
+      background: linear-gradient(160deg, rgba(45,22,80,.7), rgba(20,10,40,.8));
+    }
+    .game-select:focus {
+      border-color: var(--violet);
+      box-shadow: 0 0 0 4px rgba(168,85,247,.15), 0 0 28px rgba(168,85,247,.22);
+    }
+    .game-select option {
+      background: #150b2b;
+      color: var(--text);
+      padding: 12px;
+    }
+    .game-select option:disabled { color: var(--dim); }
+
+    .game-select-icon {
+      position: absolute;
+      left: 12px; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px; border-radius: 10px;
+      display: grid; place-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800; font-size: 12px;
+      pointer-events: none;
+      background: rgba(168,85,247,.15);
+      border: 1px solid rgba(168,85,247,.3);
+      color: var(--violet-3);
+      transition: all .25s;
+    }
+    .game-select-icon.bgmi {
+      background: linear-gradient(140deg, #fbbf24, #d97706);
+      border-color: rgba(251,191,36,.5);
+      color: #1a0c02;
+      box-shadow: 0 4px 12px rgba(251,191,36,.35);
+    }
+    .game-select-icon.ff {
+      background: linear-gradient(140deg, #f97316, #dc2626);
+      border-color: rgba(249,115,22,.5);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(249,115,22,.4);
+    }
+    .game-select-arrow {
+      position: absolute;
+      right: 18px; top: 50%; width: 10px; height: 10px;
+      border-right: 2px solid var(--violet-3);
+      border-bottom: 2px solid var(--violet-3);
+      transform: translateY(-70%) rotate(45deg);
+      pointer-events: none;
+      transition: transform .2s;
+    }
+
+    .reason-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .reason-option { position: relative; }
     .reason-option input { position: absolute; opacity: 0; pointer-events: none; }
-    .reason-option label { display: flex; align-items: flex-start; gap: 10px; height: auto; min-height: 61px; margin: 0; padding: 12px; border: 1px solid rgba(255,255,255,.1); border-radius: 11px; color: #b7c8bc; background: rgba(255,255,255,.035); cursor: pointer; letter-spacing: 0; text-transform: none; line-height: 1.3; font-size: 12px; font-weight: 750; }
-    .reason-option label::before { content: ""; flex: 0 0 14px; width: 14px; height: 14px; margin-top: 1px; border: 1px solid #556b5d; border-radius: 50%; }
-    .reason-option input:checked + label { color: #eaffee; border-color: rgba(74,222,128,.72); background: rgba(34,197,94,.15); }
-    .reason-option input:checked + label::before { border: 4px solid #4ade80; background: #072e14; }
-    .verify-note { display: flex; align-items: center; gap: 9px; margin: 20px 0 17px; padding: 12px; border: 1px solid rgba(74,222,128,.2); border-radius: 10px; color: #a9e6c2; background: rgba(34,197,94,.08); font-size: 11px; line-height: 1.45; }
-    .verify-note span { color: #4ade80; font-size: 16px; }
-
-    .payment-panel { display: none; min-height: calc(100vh - 190px); padding-top: 25px; }
-    .payment-panel.visible { display: block; animation: rise .45s ease both; }
-    .payment-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; max-width: 920px; margin: 0 auto; }
-    .amount-card { position: relative; overflow: hidden; padding: 29px; border: 1px solid rgba(34,197,94,.34); border-radius: 20px; background: linear-gradient(145deg, rgba(11,74,42,.86), rgba(7,25,15,.94)); }
-    .amount-card::after { content: "₹"; position: absolute; right: -9px; bottom: -44px; color: rgba(34,197,94,.12); font-size: 190px; font-weight: 900; line-height: 1; }
-    .amount-label { color: #86efac; font-size: 11px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
-    .amount { position: relative; z-index: 1; margin: 7px 0 4px; font-size: 58px; line-height: 1; letter-spacing: -.07em; font-weight: 900; }
-    .amount small { margin-left: 5px; color: #4ade80; font-size: 18px; letter-spacing: 0; }
-    .validity { color: #a9e6c2; font-size: 12px; }
-    .timer-row {
-      display: flex; align-items: center; gap: 10px;
-      margin-top: 18px; padding: 12px 14px;
-      border-radius: 10px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(74,222,128,.25);
-      color: #86efac; font-size: 13px; font-weight: 850;
-      position: relative; z-index: 1;
+    .reason-option label {
+      display: flex; align-items: flex-start; gap: 12px;
+      margin: 0; padding: 16px 14px; min-height: 68px;
+      border: 1px solid rgba(255,255,255,.09); border-radius: 13px;
+      color: #cbb9e8; background: rgba(0,0,0,.32);
+      cursor: pointer; font-size: 12.5px; font-weight: 600;
+      letter-spacing: 0; text-transform: none; line-height: 1.35;
+      font-family: 'Space Grotesk', sans-serif;
+      transition: all .2s;
     }
-    .timer-row svg { width: 18px; height: 18px; flex-shrink: 0; }
-    .timer-row b { margin-left: auto; font-size: 18px; color: #fff; letter-spacing: .08em; }
-    .notice-box { position: relative; z-index: 1; margin-top: 18px; padding: 14px; border-left: 2px solid var(--hot); color: #c2e6d0; background: rgba(0,0,0,.16); font-size: 12px; line-height: 1.55; }
-    .notice-box strong { display: block; margin-bottom: 3px; color: #4ade80; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; }
-    .fake-warning { position: relative; z-index: 1; margin-top: 18px; padding: 16px 18px; border: 1px solid rgba(255,79,53,.38); border-radius: 13px; color: #ffbaa9; background: rgba(156,29,21,.16); text-align: center; font-size: 13px; font-weight: 900; letter-spacing: .05em; }
+    .reason-option label::before {
+      content: ""; flex: 0 0 16px; width: 16px; height: 16px; margin-top: 1px;
+      border: 2px solid #4a3a6a; border-radius: 50%; transition: all .2s;
+    }
+    .reason-option label:hover { border-color: rgba(168,85,247,.5); background: rgba(168,85,247,.05); }
+    .reason-option input:checked + label {
+      color: #f5efff; border-color: var(--violet);
+      background: rgba(168,85,247,.12);
+      box-shadow: 0 0 0 4px rgba(168,85,247,.1);
+    }
+    .reason-option input:checked + label::before {
+      border: 5px solid var(--violet); background: #180b2e;
+      box-shadow: 0 0 14px rgba(168,85,247,.7);
+    }
 
-    .pay-card { padding: 26px; border: 1px solid var(--line); border-radius: 20px; background: rgba(21,31,24,.78); display: flex; flex-direction: column; }
-    .pay-card-head { margin-bottom: 18px; }
-    .pay-card-head h3 { margin: 0 0 6px; font-size: 20px; letter-spacing: -.02em; }
+    .payment-panel { display: none; min-height: calc(100vh - 200px); padding-top: 20px; }
+    .payment-panel.visible { display: block; animation: rise .5s cubic-bezier(.2,.8,.2,1) both; }
+    .payment-layout {
+      display: grid; grid-template-columns: 1fr 1.15fr; gap: 24px;
+      max-width: 980px; margin: 0 auto;
+    }
+
+    .amount-card { padding: 34px 30px; }
+    .scarcity-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 13px; margin-bottom: 16px;
+      border-radius: 99px;
+      background: linear-gradient(110deg, rgba(244,63,94,.15), rgba(251,191,36,.12));
+      border: 1px solid rgba(244,63,94,.35);
+      color: #fda4af; font-size: 10.5px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+      animation: scarcityPulse 2s ease-in-out infinite;
+    }
+    @keyframes scarcityPulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(244,63,94,.4); }
+      50% { box-shadow: 0 0 0 8px rgba(244,63,94,0); }
+    }
+    .scarcity-badge svg { width: 12px; height: 12px; }
+
+    .amount-label {
+      color: var(--violet-3); font-size: 10px; font-weight: 700;
+      letter-spacing: .3em; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;
+    }
+    .amount {
+      margin: 12px 0 6px; font-size: 68px; line-height: 1; font-weight: 700;
+      letter-spacing: -.04em;
+      background: linear-gradient(110deg, #fff 15%, #fef3c7 45%, #fbbf24 75%, #f59e0b 95%);
+      background-clip: text; -webkit-background-clip: text; color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    .amount small {
+      display: inline-block; margin-left: 8px; font-size: 16px;
+      color: var(--muted); -webkit-text-fill-color: var(--muted);
+      letter-spacing: .15em; font-weight: 500; vertical-align: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .strike-price {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 4px;
+      font-size: 12.5px;
+    }
+    .strike-price s { color: var(--dim); text-decoration-thickness: 2px; }
+    .strike-price em {
+      font-style: normal; padding: 3px 8px; border-radius: 6px;
+      background: rgba(74,222,128,.15); color: #86efac;
+      font-size: 10px; font-weight: 800; letter-spacing: .08em;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .validity { color: var(--muted); font-size: 12px; letter-spacing: .04em; }
+
+    .ring-timer { display: flex; align-items: center; gap: 16px; margin-top: 26px; }
+    .ring { position: relative; width: 76px; height: 76px; flex-shrink: 0; }
+    .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .ring-track { fill: none; stroke: rgba(255,255,255,.08); stroke-width: 5; }
+    .ring-progress {
+      fill: none; stroke: url(#ringGrad); stroke-width: 5;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s linear;
+      filter: drop-shadow(0 0 8px rgba(251,191,36,.9));
+    }
+    .ring-time {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700;
+      color: #fff; letter-spacing: .05em;
+    }
+    .ring-meta { display: flex; flex-direction: column; gap: 3px; }
+    .ring-meta .lbl {
+      color: var(--violet-3); font-size: 10px; letter-spacing: .24em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700;
+    }
+    .ring-meta .desc { color: var(--muted); font-size: 12px; }
+
+    .notice-box {
+      margin-top: 26px; padding: 16px 18px; border-radius: 12px;
+      background: rgba(0,0,0,.36); border: 1px solid rgba(255,255,255,.07);
+      border-left: 3px solid var(--violet);
+      color: #d5c7ec; font-size: 12.5px; line-height: 1.6;
+    }
+    .notice-box strong {
+      display: block; margin-bottom: 5px; color: var(--violet-3);
+      font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .fake-warning {
+      margin-top: 18px; padding: 14px 16px; border-radius: 12px;
+      border: 1px dashed rgba(244,63,94,.45);
+      color: #fda4af; background: rgba(244,63,94,.08);
+      text-align: center; font-size: 11px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .pay-card { padding: 30px 28px; display: flex; flex-direction: column; }
+    .pay-card-head { margin-bottom: 20px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .pay-card-head h3 { margin: 0 0 6px; font-size: 21px; font-weight: 700; letter-spacing: -.01em; }
     .pay-card-head p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.55; }
-    .qr-stage {
-      display: grid; place-items: center;
-      min-height: 220px; margin-bottom: 14px;
-      border: 1px dashed rgba(255,255,255,.13);
-      border-radius: 14px; background: #f4f9f1;
+    .instant-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 10px; border-radius: 99px; white-space: nowrap;
+      background: rgba(74,222,128,.12); border: 1px solid rgba(74,222,128,.35);
+      color: #86efac; font-size: 9.5px; font-weight: 800;
+      letter-spacing: .12em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
     }
-    .qr-image { display: block; width: 200px; height: 200px; image-rendering: pixelated; border-radius: 6px; }
+    .instant-badge::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%; background: #4ade80;
+      box-shadow: 0 0 8px #4ade80; animation: pulse 1.4s ease-in-out infinite;
+    }
+
+    .qr-stage {
+      position: relative; display: grid; place-items: center;
+      padding: 18px; margin-bottom: 8px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 2px solid transparent;
+      background-image:
+        linear-gradient(#ffffff, #ffffff),
+        linear-gradient(135deg, #a855f7, #7c3aed 30%, #fbbf24 70%, #f59e0b);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      box-shadow: 0 10px 30px rgba(168,85,247,.18), inset 0 0 0 1px rgba(168,85,247,.1);
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .qr-stage:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(168,85,247,.3); }
+    .qr-stage::after {
+      content: "🔍"; position: absolute; bottom: 8px; right: 12px;
+      font-size: 16px; opacity: .55; pointer-events: none;
+    }
+    .qr-image {
+      display: block;
+      width: 220px; height: 220px;
+      border-radius: 6px;
+      background: #fff;
+    }
+    .qr-hint {
+      text-align: center; color: var(--dim); font-size: 10px;
+      letter-spacing: .18em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 18px;
+    }
+
     .upi-row {
       display: flex; align-items: center; justify-content: space-between; gap: 10px;
-      margin-bottom: 16px; padding: 12px 14px; border-radius: 10px;
-      color: #deeee4; background: rgba(255,255,255,.045);
-      font-size: 12px;
+      margin-bottom: 18px; padding: 13px 15px; border-radius: 11px;
+      color: #ede5ff; background: rgba(0,0,0,.36);
+      border: 1px solid rgba(255,255,255,.07);
+      font-size: 12px; font-family: 'JetBrains Mono', monospace;
     }
-    .upi-row code { color: #86efac; font-size: 11.5px; font-weight: 800; word-break: break-all; }
-    .upi-row button { border: 0; color: #4ade80; background: none; font-size: 11px; font-weight: 850; white-space: nowrap; }
+    .upi-row code { color: var(--violet-3); font-size: 11.5px; font-weight: 600; word-break: break-all; }
+    .upi-row button {
+      color: var(--violet-3); font-size: 10px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      padding: 6px 10px; border-radius: 7px;
+      background: rgba(168,85,247,.1); border: 1px solid rgba(168,85,247,.28);
+      transition: all .2s;
+    }
+    .upi-row button:hover { background: rgba(168,85,247,.22); border-color: var(--violet); }
+    .upi-row button.copied {
+      background: rgba(74,222,128,.15);
+      border-color: rgba(74,222,128,.5);
+      color: #86efac;
+    }
 
     .pay-app-btn {
-      width: 100%; height: 62px;
-      border: 0; border-radius: 14px;
-      font-weight: 900; font-size: 16px; letter-spacing: .02em;
-      color: #02160a;
-      background: linear-gradient(110deg, #bbf7d0, #22c55e 47%, #15803d);
-      box-shadow: 0 14px 32px rgba(34, 197, 94, .38);
-      transition: transform .2s, filter .2s, box-shadow .2s;
-      display: flex; align-items: center; justify-content: center; gap: 10px;
+      position: relative; width: 100%; height: 66px;
+      border-radius: 15px; font-weight: 700; font-size: 15px;
+      letter-spacing: .12em; text-transform: uppercase; color: #1a0c02;
+      background: linear-gradient(110deg, #fef3c7 0%, #fbbf24 45%, #f59e0b 100%);
+      box-shadow: 0 14px 36px rgba(251,191,36,.45), inset 0 -2px 0 rgba(0,0,0,.2);
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s, filter .2s;
+      font-family: 'JetBrains Mono', monospace;
+      text-decoration: none;
     }
-    .pay-app-btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 18px 38px rgba(34,197,94,.48); }
+    .pay-app-btn::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.7) 50%, transparent 65%);
+      transform: translateX(-100%);
+    }
+    .pay-app-btn:hover { transform: translateY(-3px); box-shadow: 0 22px 50px rgba(251,191,36,.6), inset 0 -2px 0 rgba(0,0,0,.2); }
+    .pay-app-btn:hover::before { animation: btnShine 1s ease; }
+    .pay-app-btn:active { transform: translateY(-1px); }
     .pay-app-btn svg { width: 22px; height: 22px; }
-    .pay-hint { margin-top: 10px; text-align: center; color: var(--muted); font-size: 11px; font-weight: 700; }
+    .pay-hint {
+      margin-top: 12px; text-align: center; color: var(--dim);
+      font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
 
-    footer { padding: 0 0 34px; color: #5f7a66; text-align: center; font-size: 11px; }
+    .guarantee {
+      display: flex; align-items: center; gap: 10px;
+      margin-top: 18px; padding: 12px 14px; border-radius: 11px;
+      background: rgba(34,211,238,.06);
+      border: 1px solid rgba(34,211,238,.22);
+      color: #a5f3fc; font-size: 11px; font-weight: 600;
+      letter-spacing: .04em;
+    }
+    .guarantee svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--cyan); }
 
-    .toast { position: fixed; z-index: 30; right: 20px; bottom: 20px; max-width: calc(100vw - 40px); padding: 12px 15px; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; color: #eee; background: #1b251d; box-shadow: var(--shadow); font-size: 12px; transform: translateY(120px); opacity: 0; transition: .3s ease; }
+    footer {
+      padding: 0 0 40px; color: var(--dim); text-align: center;
+      font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .toast {
+      position: fixed; z-index: 100; right: 20px; bottom: 20px;
+      max-width: calc(100vw - 40px); padding: 13px 16px;
+      border-radius: 12px; color: #f5efff;
+      background: rgba(24, 11, 46, .96);
+      border: 1px solid rgba(168,85,247,.45);
+      box-shadow: 0 20px 50px rgba(0,0,0,.7), 0 0 32px rgba(168,85,247,.25);
+      font-size: 12px; font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      transform: translateY(140px); opacity: 0;
+      transition: .35s cubic-bezier(.2,.8,.2,1);
+      pointer-events: none;
+    }
     .toast.show { transform: none; opacity: 1; }
-    .hidden { display: none !important; }
+
+    .qr-modal {
+      position: fixed; inset: 0; z-index: 200;
+      display: none; align-items: center; justify-content: center;
+      padding: 20px;
+      background: rgba(4, 2, 10, .88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      animation: fadeIn .25s ease;
+    }
+    .qr-modal.open { display: flex; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .qr-modal-inner {
+      position: relative; max-width: 460px; width: 100%;
+      padding: 26px 24px 22px;
+      border-radius: 22px;
+      background: linear-gradient(160deg, rgba(34,18,64,.96), rgba(12,6,24,.98));
+      border: 1px solid rgba(168,85,247,.35);
+      box-shadow: 0 30px 80px rgba(0,0,0,.75), 0 0 60px rgba(168,85,247,.25);
+      animation: popIn .3s cubic-bezier(.2,.9,.3,1.2);
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.85); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .qr-modal-head {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 16px; gap: 12px;
+    }
+    .qr-modal-head h3 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+    .qr-modal-head .amt {
+      color: var(--gold); font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; font-weight: 800;
+    }
+    .qr-modal-close {
+      width: 34px; height: 34px; border-radius: 10px;
+      display: grid; place-items: center; flex-shrink: 0;
+      background: rgba(168,85,247,.12); border: 1px solid rgba(168,85,247,.3);
+      color: var(--violet-3); font-size: 18px; font-weight: 700;
+      transition: all .2s;
+    }
+    .qr-modal-close:hover { background: rgba(244,63,94,.18); border-color: rgba(244,63,94,.5); color: #fda4af; }
+    .qr-modal-img-wrap {
+      display: grid; place-items: center;
+      padding: 16px; border-radius: 16px;
+      background: #fff; margin-bottom: 16px;
+    }
+    .qr-modal-img {
+      display: block; width: 100%; max-width: 320px; height: auto;
+      border-radius: 6px;
+    }
+    .qr-modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .qr-modal-btn {
+      height: 50px; border-radius: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700; font-size: 12px; letter-spacing: .1em;
+      text-transform: uppercase;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all .2s;
+    }
+    .qr-modal-btn svg { width: 16px; height: 16px; }
+    .qr-modal-btn.download {
+      color: #1a0c02;
+      background: linear-gradient(110deg, #fef3c7 0%, #fbbf24 45%, #f59e0b 100%);
+      box-shadow: 0 10px 24px rgba(251,191,36,.4);
+    }
+    .qr-modal-btn.download:hover { filter: brightness(1.08); transform: translateY(-2px); }
+    .qr-modal-btn.download:disabled { filter: grayscale(.4); transform: none; cursor: wait; }
+    .qr-modal-btn.close2 {
+      color: #e9d5ff;
+      background: rgba(168,85,247,.12);
+      border: 1px solid rgba(168,85,247,.3);
+    }
+    .qr-modal-btn.close2:hover { background: rgba(168,85,247,.22); }
+    .qr-modal-hint {
+      margin-top: 12px; text-align: center; color: var(--dim);
+      font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
     body.screen-details #hero, body.screen-details #paymentPanel,
     body.screen-payment #hero, body.screen-payment #workspace { display: none; }
     body.screen-payment #paymentPanel { display: block; }
     body.screen-details .steps, body.screen-payment .steps { display: none; }
-    body.screen-details main, body.screen-payment main { padding-top: 34px; }
-    body.screen-details .workspace, body.screen-payment .payment-panel { animation: rise .45s ease both; }
+    body.screen-details main, body.screen-payment main { padding-top: 30px; }
 
     @media (max-width: 850px) {
-      .hero, .workspace-grid, .payment-layout { grid-template-columns: 1fr; }
-      .hero { gap: 36px; min-height: auto; }
-      body.screen-login .hero { min-height: calc(100vh - 150px); }
-      h1 { max-width: 650px; }
-      .auth-card { max-width: 620px; }
-      main { padding-top: 52px; }
+      .payment-layout { grid-template-columns: 1fr; }
+      .shell { width: min(100% - 28px, 1140px); }
+      main { padding-top: 32px; }
+      .trust-strip { gap: 8px; }
+      .trust-chip { font-size: 9.5px; padding: 6px 11px; }
     }
     @media (max-width: 520px) {
-      .shell { width: min(100% - 28px, 1120px); }
-      .topbar { height: 67px; }
-      .status-pill { padding: 7px 9px; font-size: 10px; }
-      .brand small { font-size: 8px; }
-      main { padding-top: 39px; }
-      h1 { font-size: 54px; }
-      .auth-card, .section-card, .amount-card, .pay-card { padding: 21px; border-radius: 17px; }
+      .ticker { font-size: 10px; height: 28px; }
+      .topbar { height: 68px; }
+      .brand-text small { font-size: 8px; letter-spacing: .2em; }
+      .status-pill { padding: 6px 10px; font-size: 9px; }
+      .status-pill .status-text { display: none; }
+      .back-btn { padding: 8px 12px 8px 9px; font-size: 10px; letter-spacing: .08em; }
+      .back-btn .back-icon { width: 20px; height: 20px; }
+      .auth-card, .section-card, .amount-card, .pay-card { padding: 24px 20px; border-radius: 20px; }
       .reason-grid { grid-template-columns: 1fr; }
-      .steps { overflow-x: auto; padding-bottom: 3px; }
-      .step-line { width: 19px; flex: 0 0 19px; }
-      .step { font-size: 10px; }
-      .amount { font-size: 52px; }
-      .pay-app-btn { height: 58px; font-size: 15px; }
+      .amount { font-size: 54px; }
+      .ring { width: 64px; height: 64px; }
+      .ring-time { font-size: 13px; }
+      .steps { font-size: 9px; letter-spacing: .16em; gap: 6px; }
+      .step-line { width: 20px; }
       .qr-image { width: 180px; height: 180px; }
+      .pay-app-btn { height: 58px; font-size: 13px; }
     }
   </style>
 </head>
 <body>
+
+  <div class="bg-wrap">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span><span class="dot"></span> <b>Rahul</b> from Delhi just unbanned his account — 2 min ago</span>
+      <span><span class="dot"></span> <b>Priya</b> from Mumbai just unlocked ID — 4 min ago</span>
+      <span><span class="dot"></span> <b>Arjun</b> from Bangalore got his UID back — 6 min ago</span>
+      <span><span class="dot"></span> <b>Sameer</b> from Chennai — ban cleared — 9 min ago</span>
+      <span><span class="dot"></span> <b>Vikas</b> from Pune — ID unlocked — 11 min ago</span>
+      <span><span class="dot"></span> <b>Rohan</b> from Kolkata — account restored — 14 min ago</span>
+    </div>
+  </div>
+
+  <!-- TOPBAR -->
   <header class="topbar">
     <div class="shell topbar-inner">
       <div class="brand">
-        <div class="brand-mark">D</div>
-        <div><strong>FREE FIRE ID UNBAN</strong><small>PREMIUM ACCESS PORTAL</small></div>
+        <div class="brand-mark">F</div>
+        <div class="brand-text">
+          <strong>Free Fire Unban</strong>
+          <small>Premium Access Portal</small>
+        </div>
       </div>
-      <button class="back-btn" id="backBtn" type="button">← Back</button>
-      <div class="status-pill"><span class="status-dot"></span> Online</div>
+      <button class="back-btn" id="backBtn" type="button">
+        <span class="back-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </span>
+        Back
+      </button>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span class="status-text">Live</span>
+      </div>
     </div>
   </header>
 
   <main class="shell">
-    <section class="hero" id="hero">
-      <section class="auth-card" aria-labelledby="login-title">
-        <div class="card-head">
-          <div><div class="card-kicker">UNBAN PREMIUM</div><h2 id="login-title">Login to continue</h2></div>
-          <div class="secure-icon">✦</div>
-        </div>
-        <form id="loginForm">
-          <div class="form-group">
-            <label for="accessKey">Login key</label>
-            <div class="field-wrap">
-              <input id="accessKey" name="accessKey" type="text" value="Ffunbanaccess.Private" autocomplete="off" spellcheck="false" aria-describedby="copyHelp" />
-              <button class="input-action" id="pasteBtn" type="button">Paste</button>
-            </div>
-            <div class="help-line" id="copyHelp"><span></span><span class="copy-state" id="copyState">Copying key…</span></div>
-          </div>
-          <button class="primary-btn" type="submit">Login <span aria-hidden="true">→</span></button>
-        </form>
-      </section>
-    </section>
 
-    <section class="workspace" id="workspace" aria-labelledby="detailsTitle">
-      <div class="steps" aria-label="Progress">
-        <div class="step active"><span class="step-num">1</span> Account details</div>
-        <span class="step-line"></span>
-        <div class="step"><span class="step-num">2</span> Payment</div>
-        <span class="step-line"></span>
-        <div class="step"><span class="step-num">3</span> Access ready</div>
-      </div>
-      <div class="workspace-grid">
-        <section class="section-card">
-          <h3 id="detailsTitle">Account details</h3>
-          <p class="section-sub">Enter your game details.</p>
-          <form id="detailsForm">
+    <!-- LOGIN -->
+    <section class="hero" id="hero">
+      <div style="width:100%;display:flex;flex-direction:column;align-items:center">
+
+        <div class="trust-strip">
+          <span class="trust-chip green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            12,847+ Trusted
+          </span>
+          <span class="trust-chip gold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.3 17 14 18.5 21 12 17.3 5.5 21 7 14 2 9.3 9 9"/></svg>
+            4.9 Rating
+          </span>
+          <span class="trust-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Instant Delivery
+          </span>
+          <span class="trust-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            100% Secure
+          </span>
+        </div>
+
+        <section class="glass auth-card" aria-labelledby="login-title">
+          <div class="card-head">
+            <div>
+              <div class="card-kicker">Unban Premium</div>
+              <h2 id="login-title">Access Portal</h2>
+            </div>
+            <div class="secure-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+          </div>
+
+          <div class="rating-row">
+            <span class="stars">★★★★★</span>
+            <b>4.9</b>
+            <span>• 2,341 verified reviews</span>
+          </div>
+
+          <form id="loginForm">
             <div class="form-group">
-              <label for="game">Select game</label>
-              <div class="field-wrap select-wrap">
-                <select id="game" required>
-                  <option value="" selected disabled>Choose your game</option>
-                  <option value="BGMI">BGMI</option>
-                  <option value="Free Fire">Free Fire</option>
-                </select>
+              <label for="accessKey">Login Key</label>
+              <div class="field-wrap">
+                <input id="accessKey" name="accessKey" type="text" value="Ffunbanaccess.Private" autocomplete="off" spellcheck="false" />
+                <button class="input-action" id="pasteBtn" type="button">Paste</button>
               </div>
+              <div class="help-line"><span>Encrypted</span><span class="copy-state" id="copyState">Copying…</span></div>
             </div>
-            <div class="form-group">
-              <label for="uid">Player UID <span>Numbers only</span></label>
-              <input id="uid" type="text" inputmode="numeric" pattern="[0-9]+" maxlength="16" placeholder="Enter your numeric UID" required />
-            </div>
-            <div class="form-group">
-              <label>Reason for access</label>
-              <div class="reason-grid">
-                <div class="reason-option"><input id="reasonHack" type="radio" name="reason" value="USE H4CK" required /><label for="reasonHack">USE H4CK</label></div>
-                <div class="reason-option"><input id="reasonFree" type="radio" name="reason" value="OPEN ID TO BAN" /><label for="reasonFree">OPEN ID TO BAN</label></div>
-              </div>
-            </div>
-            <button class="primary-btn" type="submit">Verify <span aria-hidden="true">→</span></button>
+            <button class="primary-btn" type="submit">
+              Unlock Access
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </button>
           </form>
         </section>
       </div>
     </section>
 
-    <section class="payment-panel" id="paymentPanel" aria-labelledby="paymentTitle">
+    <!-- DETAILS -->
+    <section class="workspace" id="workspace">
       <div class="steps">
-        <div class="step active"><span class="step-num">1</span> Account details</div>
+        <div class="step active"><span class="step-num">1</span> Account Details</div>
+        <span class="step-line"></span>
+        <div class="step"><span class="step-num">2</span> Payment</div>
+        <span class="step-line"></span>
+        <div class="step"><span class="step-num">3</span> Access Ready</div>
+      </div>
+      <section class="glass section-card">
+        <h3>Account Details</h3>
+        <p class="section-sub">Enter your game details to continue to payment.</p>
+        <form id="detailsForm">
+          <div class="form-group">
+            <label for="game">Select Game</label>
+            <div class="game-select-wrap">
+              <span class="game-select-icon" id="gameIcon">?</span>
+              <select class="game-select" id="game" required>
+                <option value="" selected disabled>Choose your game</option>
+                <option value="BGMI">BGMI</option>
+                <option value="Free Fire">Free Fire</option>
+              </select>
+              <span class="game-select-arrow"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="uid">Player UID <span>Numbers Only</span></label>
+            <input id="uid" type="text" inputmode="numeric" pattern="[0-9]+" maxlength="16" placeholder="Enter your numeric UID" required />
+          </div>
+          <div class="form-group">
+            <label>Reason For Access</label>
+            <div class="reason-grid">
+              <div class="reason-option"><input id="reasonHack" type="radio" name="reason" value="USE H4CK" required /><label for="reasonHack">USE H4CK</label></div>
+              <div class="reason-option"><input id="reasonFree" type="radio" name="reason" value="OPEN ID TO BAN" /><label for="reasonFree">OPEN ID TO BAN</label></div>
+            </div>
+          </div>
+          <button class="primary-btn" type="submit">
+            Verify & Continue
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+      </section>
+    </section>
+
+    <!-- PAYMENT -->
+    <section class="payment-panel" id="paymentPanel">
+      <div class="steps">
+        <div class="step active"><span class="step-num">1</span> Account Details</div>
         <span class="step-line"></span>
         <div class="step active"><span class="step-num">2</span> Payment</div>
         <span class="step-line"></span>
-        <div class="step"><span class="step-num">3</span> Access ready</div>
+        <div class="step"><span class="step-num">3</span> Access Ready</div>
       </div>
       <div class="payment-layout">
-        <section class="amount-card">
-          <div class="amount-label">UNBAN verification</div>
-          <div class="amount">₹500 <small>INR</small></div>
-          <div class="validity">Access duration • only 1 hour</div>
-          <div class="timer-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Time left</span>
-            <b id="timerText">05:00</b>
+
+        <section class="glass amount-card">
+          <div class="scarcity-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Only 3 slots left today
           </div>
-          <div class="notice-box"><strong>How to pay</strong>Scan the QR with any UPI app, OR tap the "Pay with UPI App" button to open your payment app directly.</div>
-          <div class="fake-warning">⚠️ FAKE PAYMENT — NO UNBAN OKY</div>
+
+          <div class="amount-label">Unban Verification</div>
+          <div class="amount">₹500<small>INR</small></div>
+          <div class="strike-price"><s>₹1,200</s><em>SAVE 58%</em></div>
+          <div class="validity">Access duration • only 1 hour</div>
+
+          <div class="ring-timer">
+            <div class="ring">
+              <svg viewBox="0 0 76 76">
+                <defs>
+                  <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#fef3c7"/>
+                    <stop offset="60%" stop-color="#fbbf24"/>
+                    <stop offset="100%" stop-color="#f59e0b"/>
+                  </linearGradient>
+                </defs>
+                <circle class="ring-track" cx="38" cy="38" r="35"/>
+                <circle class="ring-progress" id="ringProgress" cx="38" cy="38" r="35"/>
+              </svg>
+              <div class="ring-time" id="timerText">05:00</div>
+            </div>
+            <div class="ring-meta">
+              <div class="lbl">Time Left</div>
+              <div class="desc">Complete payment before the timer ends.</div>
+            </div>
+          </div>
+
+          <div class="notice-box">
+            <strong>How to Pay</strong>
+            Scan the QR with any UPI app, OR tap the gold button to open your payment app directly.
+          </div>
+          <div class="fake-warning">⚠ Fake Payment — No Unban</div>
         </section>
 
-        <section class="pay-card">
+        <section class="glass pay-card">
           <div class="pay-card-head">
-            <h3 id="paymentTitle">Pay ₹500</h3>
-            <p>Scan QR below or tap the button to open your UPI app.</p>
+            <div>
+              <h3>Pay ₹500</h3>
+              <p>Scan the QR below or tap the button to open your UPI app.</p>
+            </div>
+            <span class="instant-badge">Instant</span>
           </div>
 
-          <div class="qr-stage">
-            <img class="qr-image" alt="UPI QR code for ₹500 payment" src="https://i.postimg.cc/NFqbs8Bs/IMG-20260923-154855-762.jpg" />
+          <div class="qr-stage" id="qrStage" title="Tap to zoom">
+            <img class="qr-image" id="qrMainImg" alt="UPI QR code for ₹500 payment" src="https://i.postimg.cc/NFqbs8Bs/IMG-20260923-154855-762.jpg" loading="eager" />
           </div>
+          <div class="qr-hint">↑ Tap QR to zoom · long press to save</div>
 
           <div class="upi-row">
             <code id="upiId">R.devi.376@superyes</code>
-            <button id="copyUpi" type="button">Copy UPI</button>
+            <button id="copyUpi" type="button">Copy</button>
           </div>
 
-          <button class="pay-app-btn" id="payAppBtn" type="button">
+          <a class="pay-app-btn" id="payAppBtn" href="#" role="button">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 18h.01"/></svg>
-            Pay with UPI App
-          </button>
+            Pay ₹500 Now
+          </a>
           <div class="pay-hint">Opens your default UPI app</div>
+
+          <div class="guarantee">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            100% Secure Payment · Money-Back Guarantee
+          </div>
         </section>
+
       </div>
     </section>
+
   </main>
 
-  <footer>FREE FIRE ID UNBAN • Premium access portal • Front-end demo</footer>
+  <footer>Free Fire Unban • Premium Portal • Demo</footer>
   <div class="toast" id="toast" role="status"></div>
 
+  <!-- QR MODAL -->
+  <div class="qr-modal" id="qrModal" role="dialog" aria-modal="true" aria-label="QR zoom">
+    <div class="qr-modal-inner" id="qrModalInner">
+      <div class="qr-modal-head">
+        <div>
+          <h3>Scan to Pay</h3>
+          <div class="amt">₹500 · UPI</div>
+        </div>
+        <button class="qr-modal-close" id="qrModalClose" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="qr-modal-img-wrap">
+        <img class="qr-modal-img" id="qrModalImg" alt="UPI QR code zoomed" src="" />
+      </div>
+      <div class="qr-modal-actions">
+        <button class="qr-modal-btn download" id="qrDownload" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </button>
+        <button class="qr-modal-btn close2" id="qrClose2" type="button">Close</button>
+      </div>
+      <div class="qr-modal-hint">Long press to save on mobile</div>
+    </div>
+  </div>
+
   <script>
-    const $ = (selector) => document.querySelector(selector);
+    const $ = (s) => document.querySelector(s);
     const accessKey = $("#accessKey");
     const copyState = $("#copyState");
     const toast = $("#toast");
@@ -398,29 +1051,27 @@
     const UPI_CU = "INR";
     const UPI_TN = "ORD687080";
 
-    function notify(message) {
-      toast.textContent = message;
+    const upiLink = "upi://pay?pa=" + encodeURIComponent(UPI_PA)
+      + "&pn=" + encodeURIComponent(UPI_PN)
+      + "&am=" + encodeURIComponent(UPI_AM)
+      + "&cu=" + encodeURIComponent(UPI_CU)
+      + "&tn=" + encodeURIComponent(UPI_TN);
+    $("#payAppBtn").setAttribute("href", upiLink);
+
+    function notify(msg) {
+      toast.textContent = msg;
       toast.classList.add("show");
-      window.clearTimeout(window.__toastTimer);
-      window.__toastTimer = window.setTimeout(() => toast.classList.remove("show"), 2600);
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toast.classList.remove("show"), 2400);
     }
 
-    async function copyText(text, message) {
-      try {
-        await navigator.clipboard.writeText(text);
-        notify(message);
-        return true;
-      } catch {
-        const helper = document.createElement("textarea");
-        helper.value = text;
-        helper.style.position = "fixed";
-        helper.style.opacity = "0";
-        document.body.appendChild(helper);
-        helper.select();
-        document.execCommand("copy");
-        helper.remove();
-        notify(message);
-        return true;
+    async function copyText(text, msg) {
+      try { await navigator.clipboard.writeText(text); notify(msg); return true; }
+      catch {
+        const h = document.createElement("textarea");
+        h.value = text; h.style.position = "fixed"; h.style.opacity = "0";
+        document.body.appendChild(h); h.select(); document.execCommand("copy"); h.remove();
+        notify(msg); return true;
       }
     }
 
@@ -435,7 +1086,8 @@
 
     const initialScreen = location.hash === "#details" || location.hash === "#payment" ? location.hash.slice(1) : "login";
     showScreen(initialScreen, false);
-    window.addEventListener("popstate", (event) => showScreen(event.state?.screen || "login", false));
+    window.addEventListener("popstate", (e) => showScreen(e.state?.screen || "login", false));
+
     $("#backBtn").addEventListener("click", () => {
       if (document.body.classList.contains("screen-payment")) showScreen("details");
       else showScreen("login");
@@ -446,54 +1098,68 @@
         await navigator.clipboard.writeText(accessKey.value);
         copyState.textContent = "Key copied";
       } catch {
-        copyState.textContent = "Tap Copy / Paste";
+        copyState.textContent = "Tap Copy";
       }
     });
 
     $("#pasteBtn").addEventListener("click", async () => {
-      try {
-        accessKey.value = await navigator.clipboard.readText();
-        notify("Key pasted");
-      } catch {
-        accessKey.focus();
-        accessKey.select();
-        notify("Clipboard permission blocked — type or paste the key here");
-      }
+      try { accessKey.value = await navigator.clipboard.readText(); notify("Key pasted"); }
+      catch { accessKey.focus(); accessKey.select(); notify("Clipboard blocked — type or paste"); }
     });
 
-    $("#loginForm").addEventListener("submit", (event) => {
-      event.preventDefault();
+    $("#loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
       if (accessKey.value.trim() !== "Ffunbanaccess.Private") {
-        notify("Use the demo key: Ffunbanaccess.Private");
+        notify("Invalid key — use Ffunbanaccess.Private");
         accessKey.focus();
         return;
       }
       showScreen("details");
     });
 
-    $("#uid").addEventListener("input", (event) => {
-      event.target.value = event.target.value.replace(/\D/g, "");
+    const gameSelect = $("#game");
+    const gameIcon = $("#gameIcon");
+    gameSelect.addEventListener("change", () => {
+      const val = gameSelect.value;
+      gameIcon.classList.remove("bgmi", "ff");
+      if (val === "BGMI") {
+        gameIcon.classList.add("bgmi");
+        gameIcon.textContent = "BG";
+      } else if (val === "Free Fire") {
+        gameIcon.classList.add("ff");
+        gameIcon.textContent = "FF";
+      } else {
+        gameIcon.textContent = "?";
+      }
     });
 
-    $("#detailsForm").addEventListener("submit", (event) => {
-      event.preventDefault();
+    $("#uid").addEventListener("input", (e) => { e.target.value = e.target.value.replace(/\D/g, ""); });
+
+    $("#detailsForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!gameSelect.value) { notify("Please select a game"); return; }
       const uid = $("#uid").value.trim();
-      if (!/^\d+$/.test(uid)) {
-        notify("UID must contain numbers only");
-        return;
-      }
+      if (!/^\d+$/.test(uid)) { notify("UID must be numbers only"); return; }
       showScreen("payment");
-      startTimer(300, $("#timerText"));
+      startTimer(300);
     });
+
+    const RING_CIRC = 2 * Math.PI * 35;
+    const ringProgress = $("#ringProgress");
+    ringProgress.style.strokeDasharray = RING_CIRC;
 
     let timerId = null;
-    function startTimer(seconds, el) {
+    function startTimer(seconds) {
       if (timerId) clearInterval(timerId);
+      const el = $("#timerText");
       let remaining = seconds;
+      const total = seconds;
       const tick = () => {
         const m = String(Math.floor(remaining / 60)).padStart(2, "0");
         const s = String(remaining % 60).padStart(2, "0");
         el.textContent = `${m}:${s}`;
+        const offset = RING_CIRC * (1 - remaining / total);
+        ringProgress.style.strokeDashoffset = offset;
         if (remaining <= 0) { clearInterval(timerId); el.textContent = "00:00"; return; }
         remaining--;
       };
@@ -501,18 +1167,80 @@
       timerId = setInterval(tick, 1000);
     }
 
-    $("#copyUpi").addEventListener("click", () => copyText($("#upiId").textContent, "UPI ID copied"));
+    const copyBtn = $("#copyUpi");
+    copyBtn.addEventListener("click", async () => {
+      await copyText($("#upiId").textContent, "UPI ID copied");
+      copyBtn.textContent = "Copied ✓";
+      copyBtn.classList.add("copied");
+      setTimeout(() => {
+        copyBtn.textContent = "Copy";
+        copyBtn.classList.remove("copied");
+      }, 1800);
+    });
 
-    const upiLink = "upi://pay?pa=" + encodeURIComponent(UPI_PA)
-      + "&pn=" + encodeURIComponent(UPI_PN)
-      + "&am=" + encodeURIComponent(UPI_AM)
-      + "&cu=" + encodeURIComponent(UPI_CU)
-      + "&tn=" + encodeURIComponent(UPI_TN);
-
-    $("#payAppBtn").addEventListener("click", () => {
+    $("#payAppBtn").addEventListener("click", (e) => {
+      e.preventDefault();
       window.location.href = upiLink;
     });
 
+    (function () {
+      const qrStage = $("#qrStage");
+      const qrImg = $("#qrMainImg");
+      const modal = $("#qrModal");
+      const modalImg = $("#qrModalImg");
+      const closeBtn = $("#qrModalClose");
+      const closeBtn2 = $("#qrClose2");
+      const downloadBtn = $("#qrDownload");
+
+      function openModal() {
+        if (!qrImg) return;
+        modalImg.src = qrImg.src;
+        modal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal() {
+        modal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      if (qrStage) qrStage.addEventListener("click", openModal);
+      closeBtn.addEventListener("click", closeModal);
+      closeBtn2.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+
+      downloadBtn.addEventListener("click", async () => {
+        const url = qrImg.src;
+        downloadBtn.disabled = true;
+        const originalText = downloadBtn.innerHTML;
+        downloadBtn.innerHTML = "Downloading…";
+        try {
+          const res = await fetch(url, { mode: "cors" });
+          const blob = await res.blob();
+          const objUrl = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = objUrl;
+          a.download = "free-fire-unban-qr.jpg";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(() => URL.revokeObjectURL(objUrl), 4000);
+          downloadBtn.innerHTML = "Downloaded ✓";
+          setTimeout(() => { downloadBtn.innerHTML = originalText; downloadBtn.disabled = false; }, 1500);
+        } catch {
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "free-fire-unban-qr.jpg";
+          a.target = "_blank";
+          a.rel = "noopener";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          downloadBtn.innerHTML = originalText;
+          downloadBtn.disabled = false;
+        }
+      });
+    })();
   </script>
 </body>
 </html>
