@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FREE FIRE ID UNBAN — Premium Access</title>
+  <meta name="description" content="FREE FIRE ID UNBAN premium access portal" />
+  <style>
+    :root {
+      --bg: #05070c;
+      --panel: rgba(12, 18, 31, .86);
+      --panel-2: #0d1422;
+      --line: rgba(149, 181, 230, .15);
+      --text: #f5f8ff;
+      --muted: #8e9ab0;
+      --hot: #3b82f6;
+      --hot-2: #60a5fa;
+      --green: #80e86e;
+      --shadow: 0 28px 90px rgba(0,0,0,.48);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(37, 99, 235, .22), transparent 28rem),
+        radial-gradient(circle at 92% 15%, rgba(14, 165, 233, .12), transparent 25rem),
+        linear-gradient(140deg, #03050a 0%, #08101d 48%, #03050a 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image: linear-gradient(rgba(130,170,230,.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(130,170,230,.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+    }
+
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,.075);
+      background: rgba(8, 9, 13, .7);
+      backdrop-filter: blur(18px);
+    }
+    .topbar::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, transparent, rgba(59,130,246,.72), transparent); opacity: .7; }
+    .topbar-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .back-btn { display: none; align-items: center; gap: 8px; padding: 9px 12px; color: #c8c8d0; border: 1px solid var(--line); border-radius: 9px; background: rgba(255,255,255,.04); font-size: 11px; font-weight: 800; }
+    .back-btn:hover { color: #fff; border-color: rgba(96,165,250,.65); background: rgba(37,99,235,.14); }
+    body.screen-details .back-btn, body.screen-payment .back-btn { display: inline-flex; }
+    .brand { display: flex; align-items: center; gap: 11px; letter-spacing: -.02em; }
+    .brand-mark {
+      width: 36px; height: 36px; display: grid; place-items: center;
+      border-radius: 11px; color: #031026; font-size: 17px; font-weight: 950;
+      background: linear-gradient(140deg, #bfdbfe, #3b82f6 55%, #1d4ed8);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, .38);
+      transform: skew(-7deg);
+    }
+    .brand strong { font-size: 15px; }
+    .brand small { display: block; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .12em; margin-top: 2px; }
+    .status-pill {
+      display: flex; align-items: center; gap: 8px; padding: 9px 13px;
+      color: #b8eeb0; border: 1px solid rgba(128,232,110,.2);
+      border-radius: 99px; background: rgba(128,232,110,.07); font-size: 12px; font-weight: 750;
+    }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); }
+
+    main { padding: 76px 0 62px; }
+    .hero { display: grid; grid-template-columns: 1fr; place-items: center; min-height: 620px; }
+    body.screen-login .hero { min-height: calc(100vh - 190px); }
+    body.screen-login .hero-copy-wrap { display: none; }
+    body.screen-login .auth-card { width: min(100%, 430px); }
+    .hero-copy-wrap { position: relative; }
+    .hero-copy-wrap::before { content: ""; position: absolute; z-index: -1; top: 50px; left: -90px; width: 320px; height: 260px; border-radius: 50%; background: rgba(37,99,235,.16); filter: blur(70px); animation: pulseGlow 4.5s ease-in-out infinite; }
+    @keyframes pulseGlow { 0%, 100% { opacity: .42; transform: scale(.92); } 50% { opacity: .78; transform: scale(1.1); } }
+    .eyebrow { display: inline-flex; gap: 9px; align-items: center; color: #93c5fd; text-transform: uppercase; letter-spacing: .2em; font-size: 11px; font-weight: 850; }
+    .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--hot); box-shadow: 0 0 10px var(--hot); }
+    h1 { max-width: 660px; margin: 22px 0 17px; font-size: clamp(47px, 7vw, 88px); line-height: .93; letter-spacing: -.075em; font-weight: 900; }
+    .gradient-text { color: transparent; background: linear-gradient(110deg, #fff 15%, #bfdbfe 51%, #3b82f6 88%); background-clip: text; -webkit-background-clip: text; }
+    .hero-copy { max-width: 490px; margin: 0; color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .hero-bullets { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 27px; }
+    .hero-bullets span { padding: 8px 11px; color: #d0d0d8; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.035); font-size: 11px; font-weight: 700; }
+
+    .auth-card {
+      position: relative; overflow: hidden; padding: 28px; border: 1px solid rgba(111,160,232,.24);
+      border-radius: 25px; background: linear-gradient(145deg, rgba(16,28,49,.94), rgba(5,9,17,.96));
+      box-shadow: var(--shadow), inset 0 1px rgba(255,255,255,.08);
+    }
+    .auth-card::after { content: ""; position: absolute; inset: 1px; pointer-events: none; border-radius: 24px; background: linear-gradient(120deg, rgba(255,255,255,.1), transparent 22%, transparent 75%, rgba(96,165,250,.16)); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; padding: 1px; }
+    .auth-card::before {
+      content: ""; position: absolute; width: 270px; height: 190px; top: -105px; right: -60px;
+      border-radius: 50%; background: rgba(37, 99, 235, .25); filter: blur(2px);
+    }
+    .card-head { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; margin-bottom: 27px; }
+    .card-kicker { color: #60a5fa; font-size: 11px; text-transform: uppercase; letter-spacing: .17em; font-weight: 850; }
+    h2 { margin: 8px 0 0; font-size: 25px; letter-spacing: -.04em; }
+    .secure-icon { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(96,165,250,.38); color: #93c5fd; border-radius: 12px; background: rgba(37,99,235,.14); font-size: 17px; }
+    .form-group { margin: 17px 0; }
+    label { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; color: #b5b5bf; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .field-wrap { position: relative; }
+    input, select {
+      width: 100%; height: 50px; border: 1px solid rgba(255,255,255,.12); border-radius: 11px;
+      outline: none; padding: 0 14px; color: var(--text); background: rgba(255,255,255,.055);
+      transition: border .2s, box-shadow .2s, background .2s;
+    }
+    input::placeholder { color: #686974; }
+    input:focus, select:focus { border-color: rgba(96, 165, 250, .9); box-shadow: 0 0 0 4px rgba(37,99,235,.16); background: rgba(255,255,255,.08); }
+    select { appearance: none; padding-right: 42px; }
+    .select-wrap::after { content: "⌄"; position: absolute; right: 15px; top: 12px; color: #60a5fa; pointer-events: none; font-size: 18px; }
+    .input-action {
+      position: absolute; right: 6px; top: 6px; height: 38px; padding: 0 11px; color: #93c5fd;
+      border: 1px solid rgba(96,165,250,.3); border-radius: 8px; background: rgba(37,99,235,.13); font-size: 11px; font-weight: 800;
+    }
+    .help-line { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; color: #737582; font-size: 11px; }
+    .copy-state { color: #9ee88d; }
+    .primary-btn, .secondary-btn {
+      width: 100%; height: 52px; border: 0; border-radius: 11px; font-weight: 900; letter-spacing: .01em;
+      transition: transform .2s, filter .2s, box-shadow .2s;
+    }
+    .primary-btn { color: #04101f; background: linear-gradient(110deg, #bfdbfe, #3b82f6 47%, #1d4ed8); box-shadow: 0 12px 28px rgba(37, 99, 235, .3); }
+    .primary-btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 16px 33px rgba(37, 99, 235, .42); }
+    .secondary-btn { color: #dedee4; border: 1px solid var(--line); background: rgba(255,255,255,.045); }
+    .secondary-btn:hover { background: rgba(255,255,255,.09); }
+    .fine-print { margin: 15px 0 0; text-align: center; color: #686974; font-size: 10px; line-height: 1.5; }
+    .fine-print b { color: #9c9ca7; }
+
+    .workspace { display: none; min-height: calc(100vh - 190px); padding-top: 25px; }
+    .workspace.visible { display: block; animation: rise .45s ease both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
+    .steps { display: flex; align-items: center; gap: 9px; margin-bottom: 25px; color: #656672; font-size: 11px; font-weight: 800; }
+    .step { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+    .step-num { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid #383944; border-radius: 50%; }
+    .step.active { color: #60a5fa; }
+    .step.active .step-num { color: #190a06; border-color: var(--hot); background: var(--hot); }
+    .step-line { width: 34px; height: 1px; background: #33343d; }
+    .workspace-grid { display: grid; grid-template-columns: 1fr; justify-items: center; gap: 22px; }
+    .workspace-grid > .section-card:first-child { width: min(100%, 630px); }
+    .workspace-grid > aside { display: none; }
+    .section-card { padding: 27px; border: 1px solid var(--line); border-radius: 20px; background: rgba(21,22,31,.78); box-shadow: 0 18px 60px rgba(0,0,0,.2); }
+    .section-card h3 { margin: 0 0 8px; font-size: 20px; letter-spacing: -.03em; }
+    .section-sub { margin: 0 0 22px; color: var(--muted); line-height: 1.55; font-size: 13px; }
+    .reason-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .reason-option { position: relative; }
+    .reason-option input { position: absolute; opacity: 0; pointer-events: none; }
+    .reason-option label { display: flex; align-items: flex-start; gap: 10px; height: auto; min-height: 61px; margin: 0; padding: 12px; border: 1px solid rgba(255,255,255,.1); border-radius: 11px; color: #b7b7c1; background: rgba(255,255,255,.035); cursor: pointer; letter-spacing: 0; text-transform: none; line-height: 1.3; font-size: 12px; font-weight: 750; }
+    .reason-option label::before { content: ""; flex: 0 0 14px; width: 14px; height: 14px; margin-top: 1px; border: 1px solid #555661; border-radius: 50%; }
+    .reason-option input:checked + label { color: #eaf3ff; border-color: rgba(96,165,250,.72); background: rgba(37,99,235,.15); }
+    .reason-option input:checked + label::before { border: 4px solid #60a5fa; background: #07172e; }
+    .verify-note { display: flex; align-items: center; gap: 9px; margin: 20px 0 17px; padding: 12px; border: 1px solid rgba(96,165,250,.2); border-radius: 10px; color: #abc7eb; background: rgba(37,99,235,.08); font-size: 11px; line-height: 1.45; }
+    .verify-note span { color: #60a5fa; font-size: 16px; }
+
+    .payment-panel { display: none; min-height: calc(100vh - 190px); padding-top: 25px; }
+    .payment-panel.visible { display: block; animation: rise .45s ease both; }
+    .payment-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; }
+    .amount-card { position: relative; overflow: hidden; padding: 29px; border: 1px solid rgba(59,130,246,.34); border-radius: 20px; background: linear-gradient(145deg, rgba(11,35,74,.86), rgba(7,13,25,.94)); }
+    .amount-card::after { content: "₹"; position: absolute; right: -9px; bottom: -44px; color: rgba(59,130,246,.12); font-size: 190px; font-weight: 900; line-height: 1; }
+    .amount-label { color: #93c5fd; font-size: 11px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+    .amount { position: relative; z-index: 1; margin: 7px 0 4px; font-size: 58px; line-height: 1; letter-spacing: -.07em; font-weight: 900; }
+    .amount small { margin-left: 5px; color: #60a5fa; font-size: 18px; letter-spacing: 0; }
+    .validity { color: #a9c4e7; font-size: 12px; }
+    .notice-box { position: relative; z-index: 1; margin-top: 29px; padding: 14px; border-left: 2px solid var(--hot); color: #d3b9b0; background: rgba(0,0,0,.16); font-size: 12px; line-height: 1.55; }
+    .notice-box strong { display: block; margin-bottom: 3px; color: #60a5fa; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; }
+    .qr-card { padding: 25px; border: 1px solid var(--line); border-radius: 20px; background: rgba(21,22,31,.78); }
+    .qr-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 19px; }
+    .qr-head h3 { margin: 0; font-size: 19px; }
+    .qr-head p { margin: 6px 0 0; color: var(--muted); font-size: 12px; }
+    .demo-tag { padding: 6px 8px; border-radius: 6px; color: #93c5fd; background: rgba(37,99,235,.16); font-size: 9px; font-weight: 850; letter-spacing: .08em; }
+    .qr-stage { display: grid; place-items: center; min-height: 208px; border: 1px dashed rgba(255,255,255,.13); border-radius: 13px; background: #f4f1e9; }
+    .qr-image { display: block; width: 190px; height: 190px; image-rendering: pixelated; border-radius: 4px; }
+    .qr-visual { display: grid; grid-template-columns: repeat(13, 10px); grid-auto-rows: 10px; gap: 2px; padding: 11px; border-radius: 7px; background: #fff; }
+    .qr-visual span { background: #171820; }
+    .qr-visual span.off { background: transparent; }
+    .qr-visual .finder { position: relative; background: transparent; border: 3px solid #171820; }
+    .qr-visual .finder::after { content: ""; position: absolute; inset: 3px; background: #171820; }
+    .upi-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 13px; padding: 11px 12px; border-radius: 9px; color: #dedee5; background: rgba(255,255,255,.045); font-size: 12px; }
+    .upi-row code { color: #93c5fd; font-size: 11px; }
+    .upi-row button { border: 0; color: #60a5fa; background: none; font-size: 11px; font-weight: 850; }
+    .payment-form { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .form-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .payment-disclaimer { margin: 13px 0 17px; color: #777984; font-size: 10px; line-height: 1.5; }
+    .payment-disclaimer b { color: #60a5fa; }
+    .success-message { display: none; margin-top: 16px; padding: 17px; border: 1px solid rgba(128,232,110,.25); border-radius: 12px; color: #c5f6bc; background: rgba(128,232,110,.08); font-size: 13px; line-height: 1.5; }
+    .success-message.visible { display: block; animation: rise .35s ease both; }
+    .fake-warning { margin-top: 22px; padding: 16px 18px; border: 1px solid rgba(255,79,53,.38); border-radius: 13px; color: #ffbaa9; background: rgba(156,29,21,.16); text-align: center; font-size: 13px; font-weight: 900; letter-spacing: .05em; }
+    .micro-trust { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 25px; color: #71727c; font-size: 10px; font-weight: 750; letter-spacing: .04em; }
+    .micro-trust span { display: inline-flex; align-items: center; gap: 7px; }
+    .micro-trust i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ff7958; box-shadow: 0 0 9px rgba(255,121,88,.8); }
+    footer { padding: 0 0 34px; color: #5f606a; text-align: center; font-size: 11px; }
+
+    .toast { position: fixed; z-index: 30; right: 20px; bottom: 20px; max-width: calc(100vw - 40px); padding: 12px 15px; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; color: #eee; background: #1b1c25; box-shadow: var(--shadow); font-size: 12px; transform: translateY(120px); opacity: 0; transition: .3s ease; }
+    .toast.show { transform: none; opacity: 1; }
+    .hidden { display: none !important; }
+    body.screen-details #hero, body.screen-details #paymentPanel,
+    body.screen-payment #hero, body.screen-payment #workspace { display: none; }
+    body.screen-payment #paymentPanel { display: block; }
+    body.screen-payment .payment-layout { max-width: 900px; margin: 0 auto; }
+    body.screen-details .steps, body.screen-payment .steps { display: none; }
+    body.screen-details main, body.screen-payment main { padding-top: 34px; }
+    body.screen-details .workspace, body.screen-payment .payment-panel { animation: rise .45s ease both; }
+
+    @media (max-width: 850px) {
+      .hero, .workspace-grid, .payment-layout { grid-template-columns: 1fr; }
+      .hero { gap: 36px; min-height: auto; }
+      body.screen-login .hero { min-height: calc(100vh - 150px); }
+      h1 { max-width: 650px; }
+      .auth-card { max-width: 620px; }
+      main { padding-top: 52px; }
+    }
+    @media (max-width: 520px) {
+      .shell { width: min(100% - 28px, 1120px); }
+      .topbar { height: 67px; }
+      .status-pill { padding: 7px 9px; font-size: 10px; }
+      .brand small { font-size: 8px; }
+      main { padding-top: 39px; }
+      h1 { font-size: 54px; }
+      .auth-card, .section-card, .amount-card, .qr-card { padding: 21px; border-radius: 17px; }
+      .reason-grid, .form-cols { grid-template-columns: 1fr; }
+      .steps { overflow-x: auto; padding-bottom: 3px; }
+      .step-line { width: 19px; flex: 0 0 19px; }
+      .step { font-size: 10px; }
+      .qr-visual { transform: scale(.84); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">D</div>
+        <div><strong>FREE FIRE ID UNBAN</strong><small>PREMIUM ACCESS PORTAL</small></div>
+      </div>
+      <button class="back-btn" id="backBtn" type="button">← Back</button>
+      <div class="status-pill"><span class="status-dot"></span> Online</div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" id="hero">
+      <div class="hero-copy-wrap">
+      </div>
+
+      <section class="auth-card" aria-labelledby="login-title">
+        <div class="card-head">
+          <div><div class="card-kicker">UNBAN PREMIUM</div><h2 id="login-title">Login to continue</h2></div>
+          <div class="secure-icon">✦</div>
+        </div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="accessKey">Login key</label>
+            <div class="field-wrap">
+              <input id="accessKey" name="accessKey" type="text" value="Sneaky" autocomplete="off" spellcheck="false" aria-describedby="copyHelp" />
+              <button class="input-action" id="pasteBtn" type="button">Paste</button>
+            </div>
+            <div class="help-line" id="copyHelp"><span></span><span class="copy-state" id="copyState">Copying key…</span></div>
+          </div>
+          <button class="primary-btn" type="submit">Login <span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+    </section>
+
+    <section class="workspace" id="workspace" aria-labelledby="detailsTitle">
+      <div class="steps" aria-label="Progress">
+        <div class="step active"><span class="step-num">1</span> Account details</div>
+        <span class="step-line"></span>
+        <div class="step"><span class="step-num">2</span> Payment check</div>
+        <span class="step-line"></span>
+        <div class="step"><span class="step-num">3</span> Access ready</div>
+      </div>
+      <div class="workspace-grid">
+        <section class="section-card">
+          <h3 id="detailsTitle">Account details</h3>
+          <p class="section-sub">Enter your game details.</p>
+          <form id="detailsForm">
+            <div class="form-group">
+              <label for="game">Select game</label>
+              <div class="field-wrap select-wrap">
+                <select id="game" required>
+                  <option value="" selected disabled>Choose your game</option>
+                  <option value="BGMI">BGMI</option>
+                  <option value="Free Fire">Free Fire</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="uid">Player UID <span>Numbers only</span></label>
+              <input id="uid" type="text" inputmode="numeric" pattern="[0-9]+" maxlength="16" placeholder="Enter your numeric UID" required />
+            </div>
+            <div class="form-group">
+              <label>Reason for access</label>
+              <div class="reason-grid">
+                <div class="reason-option"><input id="reasonHack" type="radio" name="reason" value="USE H4CK" required /><label for="reasonHack">USE H4CK</label></div>
+                <div class="reason-option"><input id="reasonFree" type="radio" name="reason" value="OPEN ID TO BAN" /><label for="reasonFree">OPEN ID TO BAN</label></div>
+              </div>
+            </div>
+            <button class="primary-btn" type="submit">Verify <span aria-hidden="true">→</span></button>
+          </form>
+        </section>
+        <aside class="section-card">
+          <h3>UNBAN access</h3>
+          <p class="section-sub">After your details are checked, continue to the ₹500 payment instruction screen.</p>
+          <div class="hero-bullets" style="margin-top:0">
+            <span>Fast check</span><span>UID protected</span><span>Owner review</span>
+          </div>
+          <div class="notice-box" style="margin-top:24px"><strong>Notice</strong>Only submit details that belong to you. Never share your password, OTP, or banking PIN.</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="payment-panel" id="paymentPanel" aria-labelledby="paymentTitle">
+      <div class="steps">
+        <div class="step active"><span class="step-num">1</span> Account details</div>
+        <span class="step-line"></span>
+        <div class="step active"><span class="step-num">2</span> Payment check</div>
+        <span class="step-line"></span>
+        <div class="step"><span class="step-num">3</span> Access ready</div>
+      </div>
+      <div class="payment-layout">
+        <section class="amount-card">
+          <div class="amount-label">UNBAN verification</div>
+          <div class="amount">₹500 <small>INR</small></div>
+          <div class="validity">Access duration • only 1 hour</div>
+          <div class="notice-box"><strong>Tap to continue</strong>Clear payment to ID UNBAN. Follow the instructions on the right to submit your reference.</div>
+          <div class="fake-warning">⚠️ FAKE PAYMENT — NO UNBAN OKY</div>
+        </section>
+
+        <section class="qr-card">
+          <div class="qr-head">
+            <div><h3 id="paymentTitle">Pay ₹500</h3><p>Scan QR or copy UPI.</p></div>
+            <span class="demo-tag">UNBAN</span>
+          </div>
+          <div class="qr-stage" aria-label="UPI QR code">
+            <img id="qrImage" class="qr-image" alt="UPI QR code for ₹500 payment" src="https://i.postimg.cc/4drkddQP/IMG-20260925-161655-460.jpg" />
+          </div>
+          <div class="upi-row"><code id="upiId">R.devi.376@superyes</code><button id="copyUpi" type="button">Copy UPI</button></div>
+          <form class="payment-form" id="paymentForm">
+            <div class="form-cols">
+              <div class="form-group" style="margin-top:0"><label for="utr">UTR number</label><input id="utr" type="text" inputmode="numeric" maxlength="24" placeholder="Enter UTR / reference" required /></div>
+              <div class="form-group" style="margin-top:0"><label for="contact">Contact Gmail</label><input id="contact" type="email" placeholder="you@gmail.com" required /></div>
+            </div>
+            <p class="payment-disclaimer"><b>Important:</b> This static page does not verify transactions or send money. Connect a trusted backend and a verified merchant QR before production use.</p>
+            <button class="primary-btn" type="submit">Verify payment <span aria-hidden="true">→</span></button>
+            <div class="success-message" id="successMessage"><strong>Payment submitted for owner review.</strong><br />Your request is queued. The owner must verify the payment before UNBAN can start.</div>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>FREE FIRE ID UNBAN • Premium access portal • Front-end demo</footer>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    const $ = (selector) => document.querySelector(selector);
+    const accessKey = $("#accessKey");
+    const copyState = $("#copyState");
+    const toast = $("#toast");
+
+    function notify(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.clearTimeout(window.__toastTimer);
+      window.__toastTimer = window.setTimeout(() => toast.classList.remove("show"), 2600);
+    }
+
+    async function copyText(text, message) {
+      try {
+        await navigator.clipboard.writeText(text);
+        notify(message);
+        return true;
+      } catch {
+        const helper = document.createElement("textarea");
+        helper.value = text;
+        helper.style.position = "fixed";
+        helper.style.opacity = "0";
+        document.body.appendChild(helper);
+        helper.select();
+        document.execCommand("copy");
+        helper.remove();
+        notify(message);
+        return true;
+      }
+    }
+
+    function showScreen(screen, push = true) {
+      document.body.classList.remove("screen-login", "screen-details", "screen-payment");
+      document.body.classList.add("screen-" + screen);
+      $("#workspace").classList.toggle("visible", screen === "details");
+      $("#paymentPanel").classList.toggle("visible", screen === "payment");
+      if (push) history.pushState({ screen }, "", "#" + screen);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    const initialScreen = location.hash === "#details" || location.hash === "#payment" ? location.hash.slice(1) : "login";
+    showScreen(initialScreen, false);
+    window.addEventListener("popstate", (event) => showScreen(event.state?.screen || "login", false));
+    $("#backBtn").addEventListener("click", () => {
+      if (document.body.classList.contains("screen-payment")) showScreen("details");
+      else showScreen("login");
+    });
+
+    // Copy the displayed login key when the page opens where browser permissions allow it.
+    window.addEventListener("load", async () => {
+      try {
+        await navigator.clipboard.writeText(accessKey.value);
+        copyState.textContent = "Key copied";
+      } catch {
+        copyState.textContent = "Tap Copy / Paste";
+      }
+    });
+
+    $("#pasteBtn").addEventListener("click", async () => {
+      try {
+        accessKey.value = await navigator.clipboard.readText();
+        notify("Key pasted");
+      } catch {
+        accessKey.focus();
+        accessKey.select();
+        notify("Clipboard permission blocked — type or paste the key here");
+      }
+    });
+
+    $("#loginForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (accessKey.value.trim() !== "Sneaky") {
+        notify("Use the demo key: Sneaky");
+        accessKey.focus();
+        return;
+      }
+      showScreen("details");
+    });
+
+    $("#uid").addEventListener("input", (event) => {
+      event.target.value = event.target.value.replace(/\D/g, "");
+    });
+
+    $("#detailsForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const uid = $("#uid").value.trim();
+      if (!/^\d+$/.test(uid)) {
+        notify("UID must contain numbers only");
+        return;
+      }
+      showScreen("payment");
+    });
+
+    $("#copyUpi").addEventListener("click", () => copyText($("#upiId").textContent, "UPI ID copied"));
+
+    $("#paymentForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const email = $("#contact").value.trim();
+      if (!email.endsWith("@gmail.com")) {
+        notify("Please enter a valid Gmail address");
+        $("#contact").focus();
+        return;
+      }
+      $("#successMessage").classList.add("visible");
+      $("#successMessage").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+  </script>
+</body>
+</html>
