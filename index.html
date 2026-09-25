@@ -7,14 +7,14 @@
   <meta name="description" content="FREE FIRE ID UNBAN premium access portal" />
   <style>
     :root {
-      --bg: #05070c;
-      --panel: rgba(12, 18, 31, .86);
-      --panel-2: #0d1422;
-      --line: rgba(149, 181, 230, .15);
-      --text: #f5f8ff;
-      --muted: #8e9ab0;
-      --hot: #3b82f6;
-      --hot-2: #60a5fa;
+      --bg: #050c07;
+      --panel: rgba(12, 31, 18, .86);
+      --panel-2: #0d2214;
+      --line: rgba(149, 230, 179, .15);
+      --text: #f2fff7;
+      --muted: #8eb09a;
+      --hot: #22c55e;
+      --hot-2: #4ade80;
       --green: #80e86e;
       --shadow: 0 28px 90px rgba(0,0,0,.48);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -27,9 +27,9 @@
       min-width: 320px;
       color: var(--text);
       background:
-        radial-gradient(circle at 12% 8%, rgba(37, 99, 235, .22), transparent 28rem),
-        radial-gradient(circle at 92% 15%, rgba(14, 165, 233, .12), transparent 25rem),
-        linear-gradient(140deg, #03050a 0%, #08101d 48%, #03050a 100%);
+        radial-gradient(circle at 12% 8%, rgba(34, 197, 94, .22), transparent 28rem),
+        radial-gradient(circle at 92% 15%, rgba(16, 185, 129, .12), transparent 25rem),
+        linear-gradient(140deg, #030a05 0%, #081d10 48%, #030a05 100%);
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -40,8 +40,8 @@
       inset: 0;
       pointer-events: none;
       opacity: .22;
-      background-image: linear-gradient(rgba(130,170,230,.035) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(130,170,230,.035) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(130,230,170,.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(130,230,170,.035) 1px, transparent 1px);
       background-size: 44px 44px;
       mask-image: linear-gradient(to bottom, black, transparent 75%);
     }
@@ -58,20 +58,20 @@
       display: flex;
       align-items: center;
       border-bottom: 1px solid rgba(255,255,255,.075);
-      background: rgba(8, 9, 13, .7);
+      background: rgba(5, 12, 7, .7);
       backdrop-filter: blur(18px);
     }
-    .topbar::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, transparent, rgba(59,130,246,.72), transparent); opacity: .7; }
+    .topbar::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,197,94,.72), transparent); opacity: .7; }
     .topbar-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-    .back-btn { display: none; align-items: center; gap: 8px; padding: 9px 12px; color: #c8c8d0; border: 1px solid var(--line); border-radius: 9px; background: rgba(255,255,255,.04); font-size: 11px; font-weight: 800; }
-    .back-btn:hover { color: #fff; border-color: rgba(96,165,250,.65); background: rgba(37,99,235,.14); }
+    .back-btn { display: none; align-items: center; gap: 8px; padding: 9px 12px; color: #c8d8c8; border: 1px solid var(--line); border-radius: 9px; background: rgba(255,255,255,.04); font-size: 11px; font-weight: 800; }
+    .back-btn:hover { color: #fff; border-color: rgba(74,222,128,.65); background: rgba(34,197,94,.14); }
     body.screen-details .back-btn, body.screen-payment .back-btn { display: inline-flex; }
     .brand { display: flex; align-items: center; gap: 11px; letter-spacing: -.02em; }
     .brand-mark {
       width: 36px; height: 36px; display: grid; place-items: center;
-      border-radius: 11px; color: #031026; font-size: 17px; font-weight: 950;
-      background: linear-gradient(140deg, #bfdbfe, #3b82f6 55%, #1d4ed8);
-      box-shadow: 0 8px 24px rgba(37, 99, 235, .38);
+      border-radius: 11px; color: #02160a; font-size: 17px; font-weight: 950;
+      background: linear-gradient(140deg, #bbf7d0, #22c55e 55%, #15803d);
+      box-shadow: 0 8px 24px rgba(34, 197, 94, .38);
       transform: skew(-7deg);
     }
     .brand strong { font-size: 15px; }
@@ -89,129 +89,150 @@
     body.screen-login .hero-copy-wrap { display: none; }
     body.screen-login .auth-card { width: min(100%, 430px); }
     .hero-copy-wrap { position: relative; }
-    .hero-copy-wrap::before { content: ""; position: absolute; z-index: -1; top: 50px; left: -90px; width: 320px; height: 260px; border-radius: 50%; background: rgba(37,99,235,.16); filter: blur(70px); animation: pulseGlow 4.5s ease-in-out infinite; }
+    .hero-copy-wrap::before { content: ""; position: absolute; z-index: -1; top: 50px; left: -90px; width: 320px; height: 260px; border-radius: 50%; background: rgba(34,197,94,.16); filter: blur(70px); animation: pulseGlow 4.5s ease-in-out infinite; }
     @keyframes pulseGlow { 0%, 100% { opacity: .42; transform: scale(.92); } 50% { opacity: .78; transform: scale(1.1); } }
-    .eyebrow { display: inline-flex; gap: 9px; align-items: center; color: #93c5fd; text-transform: uppercase; letter-spacing: .2em; font-size: 11px; font-weight: 850; }
+    .eyebrow { display: inline-flex; gap: 9px; align-items: center; color: #86efac; text-transform: uppercase; letter-spacing: .2em; font-size: 11px; font-weight: 850; }
     .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--hot); box-shadow: 0 0 10px var(--hot); }
     h1 { max-width: 660px; margin: 22px 0 17px; font-size: clamp(47px, 7vw, 88px); line-height: .93; letter-spacing: -.075em; font-weight: 900; }
-    .gradient-text { color: transparent; background: linear-gradient(110deg, #fff 15%, #bfdbfe 51%, #3b82f6 88%); background-clip: text; -webkit-background-clip: text; }
+    .gradient-text { color: transparent; background: linear-gradient(110deg, #fff 15%, #bbf7d0 51%, #22c55e 88%); background-clip: text; -webkit-background-clip: text; }
     .hero-copy { max-width: 490px; margin: 0; color: var(--muted); line-height: 1.7; font-size: 15px; }
     .hero-bullets { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 27px; }
-    .hero-bullets span { padding: 8px 11px; color: #d0d0d8; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.035); font-size: 11px; font-weight: 700; }
+    .hero-bullets span { padding: 8px 11px; color: #d0e8d8; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.035); font-size: 11px; font-weight: 700; }
 
     .auth-card {
-      position: relative; overflow: hidden; padding: 28px; border: 1px solid rgba(111,160,232,.24);
-      border-radius: 25px; background: linear-gradient(145deg, rgba(16,28,49,.94), rgba(5,9,17,.96));
+      position: relative; overflow: hidden; padding: 28px; border: 1px solid rgba(111, 232, 160, .24);
+      border-radius: 25px; background: linear-gradient(145deg, rgba(16, 49, 28, .94), rgba(5, 17, 9, .96));
       box-shadow: var(--shadow), inset 0 1px rgba(255,255,255,.08);
     }
-    .auth-card::after { content: ""; position: absolute; inset: 1px; pointer-events: none; border-radius: 24px; background: linear-gradient(120deg, rgba(255,255,255,.1), transparent 22%, transparent 75%, rgba(96,165,250,.16)); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; padding: 1px; }
+    .auth-card::after { content: ""; position: absolute; inset: 1px; pointer-events: none; border-radius: 24px; background: linear-gradient(120deg, rgba(255,255,255,.1), transparent 22%, transparent 75%, rgba(74,222,128,.16)); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; padding: 1px; }
     .auth-card::before {
       content: ""; position: absolute; width: 270px; height: 190px; top: -105px; right: -60px;
-      border-radius: 50%; background: rgba(37, 99, 235, .25); filter: blur(2px);
+      border-radius: 50%; background: rgba(34, 197, 94, .25); filter: blur(2px);
     }
     .card-head { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; margin-bottom: 27px; }
-    .card-kicker { color: #60a5fa; font-size: 11px; text-transform: uppercase; letter-spacing: .17em; font-weight: 850; }
+    .card-kicker { color: #4ade80; font-size: 11px; text-transform: uppercase; letter-spacing: .17em; font-weight: 850; }
     h2 { margin: 8px 0 0; font-size: 25px; letter-spacing: -.04em; }
-    .secure-icon { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(96,165,250,.38); color: #93c5fd; border-radius: 12px; background: rgba(37,99,235,.14); font-size: 17px; }
+    .secure-icon { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(74,222,128,.38); color: #86efac; border-radius: 12px; background: rgba(34,197,94,.14); font-size: 17px; }
     .form-group { margin: 17px 0; }
-    label { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; color: #b5b5bf; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    label { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; color: #b5c8ba; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .field-wrap { position: relative; }
     input, select {
       width: 100%; height: 50px; border: 1px solid rgba(255,255,255,.12); border-radius: 11px;
       outline: none; padding: 0 14px; color: var(--text); background: rgba(255,255,255,.055);
       transition: border .2s, box-shadow .2s, background .2s;
     }
-    input::placeholder { color: #686974; }
-    input:focus, select:focus { border-color: rgba(96, 165, 250, .9); box-shadow: 0 0 0 4px rgba(37,99,235,.16); background: rgba(255,255,255,.08); }
+    input::placeholder { color: #6a7a6e; }
+    input:focus, select:focus { border-color: rgba(74,222,128,.9); box-shadow: 0 0 0 4px rgba(34,197,94,.16); background: rgba(255,255,255,.08); }
     select { appearance: none; padding-right: 42px; }
-    .select-wrap::after { content: "⌄"; position: absolute; right: 15px; top: 12px; color: #60a5fa; pointer-events: none; font-size: 18px; }
+    .select-wrap::after { content: "⌄"; position: absolute; right: 15px; top: 12px; color: #4ade80; pointer-events: none; font-size: 18px; }
     .input-action {
-      position: absolute; right: 6px; top: 6px; height: 38px; padding: 0 11px; color: #93c5fd;
-      border: 1px solid rgba(96,165,250,.3); border-radius: 8px; background: rgba(37,99,235,.13); font-size: 11px; font-weight: 800;
+      position: absolute; right: 6px; top: 6px; height: 38px; padding: 0 11px; color: #86efac;
+      border: 1px solid rgba(74,222,128,.3); border-radius: 8px; background: rgba(34,197,94,.13); font-size: 11px; font-weight: 800;
     }
-    .help-line { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; color: #737582; font-size: 11px; }
+    .help-line { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; color: #6e8274; font-size: 11px; }
     .copy-state { color: #9ee88d; }
     .primary-btn, .secondary-btn {
       width: 100%; height: 52px; border: 0; border-radius: 11px; font-weight: 900; letter-spacing: .01em;
       transition: transform .2s, filter .2s, box-shadow .2s;
     }
-    .primary-btn { color: #04101f; background: linear-gradient(110deg, #bfdbfe, #3b82f6 47%, #1d4ed8); box-shadow: 0 12px 28px rgba(37, 99, 235, .3); }
-    .primary-btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 16px 33px rgba(37, 99, 235, .42); }
+    .primary-btn { color: #02160a; background: linear-gradient(110deg, #bbf7d0, #22c55e 47%, #15803d); box-shadow: 0 12px 28px rgba(34, 197, 94, .3); }
+    .primary-btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 16px 33px rgba(34, 197, 94, .42); }
     .secondary-btn { color: #dedee4; border: 1px solid var(--line); background: rgba(255,255,255,.045); }
     .secondary-btn:hover { background: rgba(255,255,255,.09); }
-    .fine-print { margin: 15px 0 0; text-align: center; color: #686974; font-size: 10px; line-height: 1.5; }
-    .fine-print b { color: #9c9ca7; }
+    .fine-print { margin: 15px 0 0; text-align: center; color: #6a7a6e; font-size: 10px; line-height: 1.5; }
+    .fine-print b { color: #9cb0a2; }
 
     .workspace { display: none; min-height: calc(100vh - 190px); padding-top: 25px; }
     .workspace.visible { display: block; animation: rise .45s ease both; }
     @keyframes rise { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
-    .steps { display: flex; align-items: center; gap: 9px; margin-bottom: 25px; color: #656672; font-size: 11px; font-weight: 800; }
+    .steps { display: flex; align-items: center; gap: 9px; margin-bottom: 25px; color: #667a6c; font-size: 11px; font-weight: 800; }
     .step { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
-    .step-num { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid #383944; border-radius: 50%; }
-    .step.active { color: #60a5fa; }
-    .step.active .step-num { color: #190a06; border-color: var(--hot); background: var(--hot); }
-    .step-line { width: 34px; height: 1px; background: #33343d; }
+    .step-num { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid #384a3d; border-radius: 50%; }
+    .step.active { color: #4ade80; }
+    .step.active .step-num { color: #02160a; border-color: var(--hot); background: var(--hot); }
+    .step-line { width: 34px; height: 1px; background: #33453a; }
     .workspace-grid { display: grid; grid-template-columns: 1fr; justify-items: center; gap: 22px; }
     .workspace-grid > .section-card:first-child { width: min(100%, 630px); }
     .workspace-grid > aside { display: none; }
-    .section-card { padding: 27px; border: 1px solid var(--line); border-radius: 20px; background: rgba(21,22,31,.78); box-shadow: 0 18px 60px rgba(0,0,0,.2); }
+    .section-card { padding: 27px; border: 1px solid var(--line); border-radius: 20px; background: rgba(21,31,24,.78); box-shadow: 0 18px 60px rgba(0,0,0,.2); }
     .section-card h3 { margin: 0 0 8px; font-size: 20px; letter-spacing: -.03em; }
     .section-sub { margin: 0 0 22px; color: var(--muted); line-height: 1.55; font-size: 13px; }
     .reason-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .reason-option { position: relative; }
     .reason-option input { position: absolute; opacity: 0; pointer-events: none; }
-    .reason-option label { display: flex; align-items: flex-start; gap: 10px; height: auto; min-height: 61px; margin: 0; padding: 12px; border: 1px solid rgba(255,255,255,.1); border-radius: 11px; color: #b7b7c1; background: rgba(255,255,255,.035); cursor: pointer; letter-spacing: 0; text-transform: none; line-height: 1.3; font-size: 12px; font-weight: 750; }
-    .reason-option label::before { content: ""; flex: 0 0 14px; width: 14px; height: 14px; margin-top: 1px; border: 1px solid #555661; border-radius: 50%; }
-    .reason-option input:checked + label { color: #eaf3ff; border-color: rgba(96,165,250,.72); background: rgba(37,99,235,.15); }
-    .reason-option input:checked + label::before { border: 4px solid #60a5fa; background: #07172e; }
-    .verify-note { display: flex; align-items: center; gap: 9px; margin: 20px 0 17px; padding: 12px; border: 1px solid rgba(96,165,250,.2); border-radius: 10px; color: #abc7eb; background: rgba(37,99,235,.08); font-size: 11px; line-height: 1.45; }
-    .verify-note span { color: #60a5fa; font-size: 16px; }
+    .reason-option label { display: flex; align-items: flex-start; gap: 10px; height: auto; min-height: 61px; margin: 0; padding: 12px; border: 1px solid rgba(255,255,255,.1); border-radius: 11px; color: #b7c8bc; background: rgba(255,255,255,.035); cursor: pointer; letter-spacing: 0; text-transform: none; line-height: 1.3; font-size: 12px; font-weight: 750; }
+    .reason-option label::before { content: ""; flex: 0 0 14px; width: 14px; height: 14px; margin-top: 1px; border: 1px solid #556b5d; border-radius: 50%; }
+    .reason-option input:checked + label { color: #eaffee; border-color: rgba(74,222,128,.72); background: rgba(34,197,94,.15); }
+    .reason-option input:checked + label::before { border: 4px solid #4ade80; background: #072e14; }
+    .verify-note { display: flex; align-items: center; gap: 9px; margin: 20px 0 17px; padding: 12px; border: 1px solid rgba(74,222,128,.2); border-radius: 10px; color: #a9e6c2; background: rgba(34,197,94,.08); font-size: 11px; line-height: 1.45; }
+    .verify-note span { color: #4ade80; font-size: 16px; }
 
     .payment-panel { display: none; min-height: calc(100vh - 190px); padding-top: 25px; }
     .payment-panel.visible { display: block; animation: rise .45s ease both; }
-    .payment-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; }
-    .amount-card { position: relative; overflow: hidden; padding: 29px; border: 1px solid rgba(59,130,246,.34); border-radius: 20px; background: linear-gradient(145deg, rgba(11,35,74,.86), rgba(7,13,25,.94)); }
-    .amount-card::after { content: "₹"; position: absolute; right: -9px; bottom: -44px; color: rgba(59,130,246,.12); font-size: 190px; font-weight: 900; line-height: 1; }
-    .amount-label { color: #93c5fd; font-size: 11px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+    .payment-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; max-width: 920px; margin: 0 auto; }
+    .amount-card { position: relative; overflow: hidden; padding: 29px; border: 1px solid rgba(34,197,94,.34); border-radius: 20px; background: linear-gradient(145deg, rgba(11,74,42,.86), rgba(7,25,15,.94)); }
+    .amount-card::after { content: "₹"; position: absolute; right: -9px; bottom: -44px; color: rgba(34,197,94,.12); font-size: 190px; font-weight: 900; line-height: 1; }
+    .amount-label { color: #86efac; font-size: 11px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
     .amount { position: relative; z-index: 1; margin: 7px 0 4px; font-size: 58px; line-height: 1; letter-spacing: -.07em; font-weight: 900; }
-    .amount small { margin-left: 5px; color: #60a5fa; font-size: 18px; letter-spacing: 0; }
-    .validity { color: #a9c4e7; font-size: 12px; }
-    .notice-box { position: relative; z-index: 1; margin-top: 29px; padding: 14px; border-left: 2px solid var(--hot); color: #d3b9b0; background: rgba(0,0,0,.16); font-size: 12px; line-height: 1.55; }
-    .notice-box strong { display: block; margin-bottom: 3px; color: #60a5fa; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; }
-    .qr-card { padding: 25px; border: 1px solid var(--line); border-radius: 20px; background: rgba(21,22,31,.78); }
-    .qr-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 19px; }
-    .qr-head h3 { margin: 0; font-size: 19px; }
-    .qr-head p { margin: 6px 0 0; color: var(--muted); font-size: 12px; }
-    .demo-tag { padding: 6px 8px; border-radius: 6px; color: #93c5fd; background: rgba(37,99,235,.16); font-size: 9px; font-weight: 850; letter-spacing: .08em; }
-    .qr-stage { display: grid; place-items: center; min-height: 208px; border: 1px dashed rgba(255,255,255,.13); border-radius: 13px; background: #f4f1e9; }
-    .qr-image { display: block; width: 190px; height: 190px; image-rendering: pixelated; border-radius: 4px; }
-    .qr-visual { display: grid; grid-template-columns: repeat(13, 10px); grid-auto-rows: 10px; gap: 2px; padding: 11px; border-radius: 7px; background: #fff; }
-    .qr-visual span { background: #171820; }
-    .qr-visual span.off { background: transparent; }
-    .qr-visual .finder { position: relative; background: transparent; border: 3px solid #171820; }
-    .qr-visual .finder::after { content: ""; position: absolute; inset: 3px; background: #171820; }
-    .upi-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 13px; padding: 11px 12px; border-radius: 9px; color: #dedee5; background: rgba(255,255,255,.045); font-size: 12px; }
-    .upi-row code { color: #93c5fd; font-size: 11px; }
-    .upi-row button { border: 0; color: #60a5fa; background: none; font-size: 11px; font-weight: 850; }
-    .payment-form { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
-    .form-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .payment-disclaimer { margin: 13px 0 17px; color: #777984; font-size: 10px; line-height: 1.5; }
-    .payment-disclaimer b { color: #60a5fa; }
-    .success-message { display: none; margin-top: 16px; padding: 17px; border: 1px solid rgba(128,232,110,.25); border-radius: 12px; color: #c5f6bc; background: rgba(128,232,110,.08); font-size: 13px; line-height: 1.5; }
-    .success-message.visible { display: block; animation: rise .35s ease both; }
-    .fake-warning { margin-top: 22px; padding: 16px 18px; border: 1px solid rgba(255,79,53,.38); border-radius: 13px; color: #ffbaa9; background: rgba(156,29,21,.16); text-align: center; font-size: 13px; font-weight: 900; letter-spacing: .05em; }
-    .micro-trust { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 25px; color: #71727c; font-size: 10px; font-weight: 750; letter-spacing: .04em; }
-    .micro-trust span { display: inline-flex; align-items: center; gap: 7px; }
-    .micro-trust i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ff7958; box-shadow: 0 0 9px rgba(255,121,88,.8); }
-    footer { padding: 0 0 34px; color: #5f606a; text-align: center; font-size: 11px; }
+    .amount small { margin-left: 5px; color: #4ade80; font-size: 18px; letter-spacing: 0; }
+    .validity { color: #a9e6c2; font-size: 12px; }
+    .timer-row {
+      display: flex; align-items: center; gap: 10px;
+      margin-top: 18px; padding: 12px 14px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(74,222,128,.25);
+      color: #86efac; font-size: 13px; font-weight: 850;
+      position: relative; z-index: 1;
+    }
+    .timer-row svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .timer-row b { margin-left: auto; font-size: 18px; color: #fff; letter-spacing: .08em; }
+    .notice-box { position: relative; z-index: 1; margin-top: 18px; padding: 14px; border-left: 2px solid var(--hot); color: #c2e6d0; background: rgba(0,0,0,.16); font-size: 12px; line-height: 1.55; }
+    .notice-box strong { display: block; margin-bottom: 3px; color: #4ade80; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; }
+    .fake-warning { position: relative; z-index: 1; margin-top: 18px; padding: 16px 18px; border: 1px solid rgba(255,79,53,.38); border-radius: 13px; color: #ffbaa9; background: rgba(156,29,21,.16); text-align: center; font-size: 13px; font-weight: 900; letter-spacing: .05em; }
 
-    .toast { position: fixed; z-index: 30; right: 20px; bottom: 20px; max-width: calc(100vw - 40px); padding: 12px 15px; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; color: #eee; background: #1b1c25; box-shadow: var(--shadow); font-size: 12px; transform: translateY(120px); opacity: 0; transition: .3s ease; }
+    .pay-card { padding: 26px; border: 1px solid var(--line); border-radius: 20px; background: rgba(21,31,24,.78); display: flex; flex-direction: column; }
+    .pay-card-head { margin-bottom: 18px; }
+    .pay-card-head h3 { margin: 0 0 6px; font-size: 20px; letter-spacing: -.02em; }
+    .pay-card-head p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.55; }
+    .qr-stage {
+      display: grid; place-items: center;
+      min-height: 220px; margin-bottom: 14px;
+      border: 1px dashed rgba(255,255,255,.13);
+      border-radius: 14px; background: #f4f9f1;
+    }
+    .qr-image { display: block; width: 200px; height: 200px; image-rendering: pixelated; border-radius: 6px; }
+    .upi-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      margin-bottom: 16px; padding: 12px 14px; border-radius: 10px;
+      color: #deeee4; background: rgba(255,255,255,.045);
+      font-size: 12px;
+    }
+    .upi-row code { color: #86efac; font-size: 11.5px; font-weight: 800; word-break: break-all; }
+    .upi-row button { border: 0; color: #4ade80; background: none; font-size: 11px; font-weight: 850; white-space: nowrap; }
+
+    .pay-app-btn {
+      width: 100%; height: 62px;
+      border: 0; border-radius: 14px;
+      font-weight: 900; font-size: 16px; letter-spacing: .02em;
+      color: #02160a;
+      background: linear-gradient(110deg, #bbf7d0, #22c55e 47%, #15803d);
+      box-shadow: 0 14px 32px rgba(34, 197, 94, .38);
+      transition: transform .2s, filter .2s, box-shadow .2s;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .pay-app-btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 18px 38px rgba(34,197,94,.48); }
+    .pay-app-btn svg { width: 22px; height: 22px; }
+    .pay-hint { margin-top: 10px; text-align: center; color: var(--muted); font-size: 11px; font-weight: 700; }
+
+    footer { padding: 0 0 34px; color: #5f7a66; text-align: center; font-size: 11px; }
+
+    .toast { position: fixed; z-index: 30; right: 20px; bottom: 20px; max-width: calc(100vw - 40px); padding: 12px 15px; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; color: #eee; background: #1b251d; box-shadow: var(--shadow); font-size: 12px; transform: translateY(120px); opacity: 0; transition: .3s ease; }
     .toast.show { transform: none; opacity: 1; }
     .hidden { display: none !important; }
     body.screen-details #hero, body.screen-details #paymentPanel,
     body.screen-payment #hero, body.screen-payment #workspace { display: none; }
     body.screen-payment #paymentPanel { display: block; }
-    body.screen-payment .payment-layout { max-width: 900px; margin: 0 auto; }
     body.screen-details .steps, body.screen-payment .steps { display: none; }
     body.screen-details main, body.screen-payment main { padding-top: 34px; }
     body.screen-details .workspace, body.screen-payment .payment-panel { animation: rise .45s ease both; }
@@ -231,12 +252,14 @@
       .brand small { font-size: 8px; }
       main { padding-top: 39px; }
       h1 { font-size: 54px; }
-      .auth-card, .section-card, .amount-card, .qr-card { padding: 21px; border-radius: 17px; }
-      .reason-grid, .form-cols { grid-template-columns: 1fr; }
+      .auth-card, .section-card, .amount-card, .pay-card { padding: 21px; border-radius: 17px; }
+      .reason-grid { grid-template-columns: 1fr; }
       .steps { overflow-x: auto; padding-bottom: 3px; }
       .step-line { width: 19px; flex: 0 0 19px; }
       .step { font-size: 10px; }
-      .qr-visual { transform: scale(.84); }
+      .amount { font-size: 52px; }
+      .pay-app-btn { height: 58px; font-size: 15px; }
+      .qr-image { width: 180px; height: 180px; }
     }
   </style>
 </head>
@@ -254,9 +277,6 @@
 
   <main class="shell">
     <section class="hero" id="hero">
-      <div class="hero-copy-wrap">
-      </div>
-
       <section class="auth-card" aria-labelledby="login-title">
         <div class="card-head">
           <div><div class="card-kicker">UNBAN PREMIUM</div><h2 id="login-title">Login to continue</h2></div>
@@ -280,7 +300,7 @@
       <div class="steps" aria-label="Progress">
         <div class="step active"><span class="step-num">1</span> Account details</div>
         <span class="step-line"></span>
-        <div class="step"><span class="step-num">2</span> Payment check</div>
+        <div class="step"><span class="step-num">2</span> Payment</div>
         <span class="step-line"></span>
         <div class="step"><span class="step-num">3</span> Access ready</div>
       </div>
@@ -313,14 +333,6 @@
             <button class="primary-btn" type="submit">Verify <span aria-hidden="true">→</span></button>
           </form>
         </section>
-        <aside class="section-card">
-          <h3>UNBAN access</h3>
-          <p class="section-sub">After your details are checked, continue to the ₹500 payment instruction screen.</p>
-          <div class="hero-bullets" style="margin-top:0">
-            <span>Fast check</span><span>UID protected</span><span>Owner review</span>
-          </div>
-          <div class="notice-box" style="margin-top:24px"><strong>Notice</strong>Only submit details that belong to you. Never share your password, OTP, or banking PIN.</div>
-        </aside>
       </div>
     </section>
 
@@ -328,7 +340,7 @@
       <div class="steps">
         <div class="step active"><span class="step-num">1</span> Account details</div>
         <span class="step-line"></span>
-        <div class="step active"><span class="step-num">2</span> Payment check</div>
+        <div class="step active"><span class="step-num">2</span> Payment</div>
         <span class="step-line"></span>
         <div class="step"><span class="step-num">3</span> Access ready</div>
       </div>
@@ -337,28 +349,35 @@
           <div class="amount-label">UNBAN verification</div>
           <div class="amount">₹500 <small>INR</small></div>
           <div class="validity">Access duration • only 1 hour</div>
-          <div class="notice-box"><strong>Tap to continue</strong>Clear payment to ID UNBAN. Follow the instructions on the right to submit your reference.</div>
+          <div class="timer-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Time left</span>
+            <b id="timerText">05:00</b>
+          </div>
+          <div class="notice-box"><strong>How to pay</strong>Scan the QR with any UPI app, OR tap the "Pay with UPI App" button to open your payment app directly.</div>
           <div class="fake-warning">⚠️ FAKE PAYMENT — NO UNBAN OKY</div>
         </section>
 
-        <section class="qr-card">
-          <div class="qr-head">
-            <div><h3 id="paymentTitle">Pay ₹500</h3><p>Scan QR or copy UPI.</p></div>
-            <span class="demo-tag">UNBAN</span>
+        <section class="pay-card">
+          <div class="pay-card-head">
+            <h3 id="paymentTitle">Pay ₹500</h3>
+            <p>Scan QR below or tap the button to open your UPI app.</p>
           </div>
-          <div class="qr-stage" aria-label="UPI QR code">
-            <img id="qrImage" class="qr-image" alt="UPI QR code for ₹500 payment" src="https://i.postimg.cc/4drkddQP/IMG-20260925-161655-460.jpg" />
+
+          <div class="qr-stage">
+            <img class="qr-image" alt="UPI QR code for ₹500 payment" src="https://i.postimg.cc/NFqbs8Bs/IMG-20260923-154855-762.jpg" />
           </div>
-          <div class="upi-row"><code id="upiId">R.devi.376@superyes</code><button id="copyUpi" type="button">Copy UPI</button></div>
-          <form class="payment-form" id="paymentForm">
-            <div class="form-cols">
-              <div class="form-group" style="margin-top:0"><label for="utr">UTR number</label><input id="utr" type="text" inputmode="numeric" maxlength="24" placeholder="Enter UTR / reference" required /></div>
-              <div class="form-group" style="margin-top:0"><label for="contact">Contact Gmail</label><input id="contact" type="email" placeholder="you@gmail.com" required /></div>
-            </div>
-            <p class="payment-disclaimer"><b>Important:</b> This static page does not verify transactions or send money. Connect a trusted backend and a verified merchant QR before production use.</p>
-            <button class="primary-btn" type="submit">Verify payment <span aria-hidden="true">→</span></button>
-            <div class="success-message" id="successMessage"><strong>Payment submitted for owner review.</strong><br />Your request is queued. The owner must verify the payment before UNBAN can start.</div>
-          </form>
+
+          <div class="upi-row">
+            <code id="upiId">R.devi.376@superyes</code>
+            <button id="copyUpi" type="button">Copy UPI</button>
+          </div>
+
+          <button class="pay-app-btn" id="payAppBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 18h.01"/></svg>
+            Pay with UPI App
+          </button>
+          <div class="pay-hint">Opens your default UPI app</div>
         </section>
       </div>
     </section>
@@ -372,6 +391,12 @@
     const accessKey = $("#accessKey");
     const copyState = $("#copyState");
     const toast = $("#toast");
+
+    const UPI_PA = "R.devi.376@superyes";
+    const UPI_PN = "DarkWeb Carding";
+    const UPI_AM = "500";
+    const UPI_CU = "INR";
+    const UPI_TN = "ORD687080";
 
     function notify(message) {
       toast.textContent = message;
@@ -416,7 +441,6 @@
       else showScreen("login");
     });
 
-    // Copy the displayed login key when the page opens where browser permissions allow it.
     window.addEventListener("load", async () => {
       try {
         await navigator.clipboard.writeText(accessKey.value);
@@ -459,20 +483,34 @@
         return;
       }
       showScreen("payment");
+      startTimer(300, $("#timerText"));
     });
+
+    let timerId = null;
+    function startTimer(seconds, el) {
+      if (timerId) clearInterval(timerId);
+      let remaining = seconds;
+      const tick = () => {
+        const m = String(Math.floor(remaining / 60)).padStart(2, "0");
+        const s = String(remaining % 60).padStart(2, "0");
+        el.textContent = `${m}:${s}`;
+        if (remaining <= 0) { clearInterval(timerId); el.textContent = "00:00"; return; }
+        remaining--;
+      };
+      tick();
+      timerId = setInterval(tick, 1000);
+    }
 
     $("#copyUpi").addEventListener("click", () => copyText($("#upiId").textContent, "UPI ID copied"));
 
-    $("#paymentForm").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const email = $("#contact").value.trim();
-      if (!email.endsWith("@gmail.com")) {
-        notify("Please enter a valid Gmail address");
-        $("#contact").focus();
-        return;
-      }
-      $("#successMessage").classList.add("visible");
-      $("#successMessage").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    const upiLink = "upi://pay?pa=" + encodeURIComponent(UPI_PA)
+      + "&pn=" + encodeURIComponent(UPI_PN)
+      + "&am=" + encodeURIComponent(UPI_AM)
+      + "&cu=" + encodeURIComponent(UPI_CU)
+      + "&tn=" + encodeURIComponent(UPI_TN);
+
+    $("#payAppBtn").addEventListener("click", () => {
+      window.location.href = upiLink;
     });
 
   </script>
